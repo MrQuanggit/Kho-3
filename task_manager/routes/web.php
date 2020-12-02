@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerControllerResource;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,33 +15,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Mail-check
-//Route::get('/', function () {
-//    return view('index');
-//});
-//Route::post('checkMail', [\App\Http\Controllers\UserController::class, 'validationEmail'])->name('checkMail');
-
-//Customer
-////use App\Http\Controllers\CustomerController;
-//Route::prefix('customers')->group(function () {
-//    Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
-//    Route::get('create', [CustomerController::class, 'create'])->name('customers.create');
-//    Route::post('create', [CustomerController::class, 'store'])->name('customers.store');
-//    Route::get('{id}/show', [CustomerController::class, 'show'])->name('customers.show');
-//    Route::get('{id}/edit', [CustomerController::class, 'edit'])->name('customers.edit');
-//    Route::post('{id}/edit', [CustomerController::class, 'update'])->name('customers.update');
-//    Route::get('{id}', [CustomerController::class, 'destroy'])->name('customers.destroy');
-//});
-
-//Route::group(['prefix' => 'customers'], function () {
-//    Route::get('/',[CustomerController::class, 'index'])->name('customers.index');
-//});
-
-//Calculator
-//Route::get('calculator', [\App\Http\Controllers\CalculatorController::class, 'index'])->name('calculator.index');
-
-//Task 3
-//Route::resource('customers', CustomerControllerResource::class);
 
 //login
 Route::get('/', function () {
@@ -65,5 +40,15 @@ Route::middleware(['auth', 'checkActiveAccount'])->prefix('admin')->group(functi
         Route::post('{id}/edit', [UserController::class, 'update'])->name('users.update');
         Route::get('{id}/delete', [UserController::class, 'destroy'])->name('users.destroy');
         Route::get('search', [UserController::class, 'search'])->name('users.search');
+    });
+    Route::prefix('categories')->group(function (){
+        Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
+        Route::get('/{id}/posts', [CategoryController::class, 'getPostByCategoryId'])->name('categories.getPostByCategoryId');
+
+    });
+
+    Route::prefix('posts')->group(function (){
+        Route::get('/', [PostController::class, 'index'])->name('posts.index');
+
     });
 });

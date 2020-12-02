@@ -1,10 +1,9 @@
 <?php
-
-
 namespace App\Http\Controllers;
 
 use App\Http\Services\UserService;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -19,13 +18,14 @@ class UserController extends Controller
 
     function index()
     {
-        $users = $this->userService->getAll();
+        $users = $this->userService->getPagination();
         return view('admin.users.list', compact('users'));
     }
 
     function create()
     {
-        return view('admin.users.create');
+        $roles = Role::all();
+        return view('admin.users.create', compact('roles'));
     }
 
     function store(Request $request)
@@ -57,7 +57,7 @@ class UserController extends Controller
         $users = User::where('username','like', '%'.$search.'%')
             ->orWhere('phone','like', '%'.$search.'%')
             ->orWhere('mail','like', '%'.$search.'%')
-            ->get();
+            ->paginate(5);
         return view('admin.users.list', compact('users', 'search'));
     }
 

@@ -23,7 +23,17 @@
                             <label >Phone</label>
                             <input name="phone" type="text" class="form-control">
                         </div>
-
+                        <div class="form-group">
+                            <label>Role</label>
+                            @foreach($roles as $role)
+                                <div class="form-check">
+                                    <input name="roles[{{ $role->id }}]" class="form-check-input" type="checkbox" value="{{ $role->id }}">
+                                    <label class="form-check-label">
+                                        {{ $role->name }}
+                                    </label>
+                                </div>
+                            @endforeach
+                        </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Thêm mới</button>
                             <a href="{{ route('users.index') }}" class="btn btn-info">Trở về</a>

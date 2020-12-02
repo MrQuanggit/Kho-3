@@ -25,11 +25,15 @@ class UserService
         $user->role = 1;
         $user->mail = $request->mail;
         $user->phone = $request->phone;
-        $this->userRepository->save($user);
+        $this->userRepository->save($user, $request->roles);
     }
 
     function getAll() {
         return $this->userRepository->getAll();
+    }
+
+    function getPagination() {
+        return $this->userRepository->getPagination();
     }
 
     function update($request, $id) {
@@ -39,14 +43,4 @@ class UserService
         $user->phone = $request->phone;
         $this->userRepository->save($user);
     }
-
-    function delete($request, $id) {
-        $user = $this->userRepository->getUserById($id);
-    }
-
-//    function search($request) {
-//        $search = $request->search;
-//        $user = $this->userRepository->getBySearch($search);
-//        $this->userRepository->save($user);
-//    }
 }

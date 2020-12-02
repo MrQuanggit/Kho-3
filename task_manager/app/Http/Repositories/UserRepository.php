@@ -14,14 +14,26 @@ class UserRepository
         $this->userModel = $user;
     }
 
-    function save($user)
+    function save($user, $roles = null)
     {
-        $user->save();
+        DB::beginTransaction();
+        try {
+            $user->save();
+            $user->roles()->sync($roles);
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return $exception->getMessage();
+        }
     }
 
-    function getAll()
+    function getAll() {
+        return $this->userModel->get();
+    }
+
+    function getPagination()
     {
-        return $this->userModel->all();
+        return $this->userModel::paginate(5);
     }
 
     function getUserById($id)
