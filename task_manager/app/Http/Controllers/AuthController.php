@@ -15,7 +15,7 @@ class AuthController extends Controller
         $this->userService = $userService;
     }
 
-    function showFormLogin()
+    function showFormLogin(Request $request)
     {
         return view('admin.login');
     }
@@ -24,11 +24,15 @@ class AuthController extends Controller
     {
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
+            $request->session()->push('login', true);
             return redirect()->route('admin.dashboard');
+        } else {
+            $message = "Login Fail, Please Try Again, Thank!";
+            return redirect()->route('login')->with('error',$message);
         }
     }
 
-    function logout()
+    function logout(Request $request)
     {
         Auth::logout();
         return redirect()->route('login');

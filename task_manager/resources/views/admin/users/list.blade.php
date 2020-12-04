@@ -5,12 +5,6 @@
             <div class="card">
                 <h5 class="card-header">Danh sách người dùng</h5>
                 <div class="col-12">
-                    @if (Session::has('success'))
-                        <p class="text-success">
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            <div class="alert alert-success" role="alert">{{ Session::get('success') }}</div>
-                        </p>
-                    @endif
                 </div>
                 <div class="card-body">
                     <a href="{{ route('users.create') }}" class="btn btn-success">Add</a>
@@ -26,16 +20,20 @@
                             <th scope="col">Tên</th>
                             <th scope="col">Email</th>
                             <th scope="col">SDT</th>
-                            <th></th>
+                            <th scope="col">Roles</th>
+                            <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($users as $key => $user)
                             <tr>
-                                <th scope="row">{{ $key + 1 }}</th>
+                                <td scope="row">{{ $key + 1 }}</td>
                                 <td>{{ $user->username }}</td>
                                 <td>{{ $user->mail }}</td>
                                 <td>{{ $user->phone }}</td>
+                                <td>@foreach($user->roles as $role)
+                               {{ $role->name }}<br>
+                                @endforeach</td>
                                 <td><a href="{{ route('users.show',$user->id) }}" style="padding: 5px" class="btn btn-primary">Show</a>
                                     <a href="{{ route('users.edit',$user->id) }}" style="padding: 5px" class="btn btn-warning">Edit</a>
                                     <a href="{{ route('users.destroy',$user->id) }}" style="padding: 5px" class="btn btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa?')">Delete</a></td>

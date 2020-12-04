@@ -18,6 +18,7 @@
     <title>CoreUI Pro Bootstrap Admin Template</title>
     <!-- Main styles for this application-->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
 </head>
 <body class="c-app flex-row align-items-center">
 <div class="container">
@@ -30,6 +31,11 @@
                         <div class="card-body">
                             <h1>Login</h1>
                             <p class="text-muted">Sign In to your account</p>
+                            @if (Session::has('login-fail'))
+                                <div class="login-fail">
+                                    <p class="text-danger">{{ Session::get('login-fail')}}</p>
+                                </div>
+                            @endif
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend"><span class="input-group-text">
                       <svg class="c-icon">
@@ -49,14 +55,13 @@
                                     <button class="btn btn-primary px-4" type="submit">Login</button>
                                 </div>
                                 <div class="col-6 text-right">
-                                    <button class="btn btn-link px-0" type="button">Forgot password?</button>
+                                    <button id="button" class="btn btn-link px-0" type="button">Forgot password?</button>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -65,6 +70,35 @@
 <!--[if IE]><!-->
 <script src="{{ asset('vendors/@coreui/icons/js/svgxuse.min.js') }}"></script>
 <!--<![endif]-->
+{{--Toastr--}}
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
+
+<script>
+        toastr.options = {
+            "closeButton": true ,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+</script>
+@if(\Illuminate\Support\Facades\Session::has('error'))
+    <script>
+        toastr.error("{!! Session::get('error') !!}")
+        // toastr["error"]("Login Fail", "Fail")
+    </script>
+    @endif
 <script>
     document.addEventListener("DOMContentLoaded", function(event) {
         setTimeout(function() {

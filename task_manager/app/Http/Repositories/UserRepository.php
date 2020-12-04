@@ -3,6 +3,7 @@
 namespace App\Http\Repositories;
 
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Support\Facades\DB;
 
 class UserRepository
@@ -16,6 +17,8 @@ class UserRepository
 
     function save($user, $roles = null)
     {
+//        $user->save();
+//        $user->roles()->sync($roles);
         DB::beginTransaction();
         try {
             $user->save();
@@ -40,10 +43,4 @@ class UserRepository
     {
         return $this->userModel->findOrFail($id);
     }
-
-//    function getBySearch($search)
-//    {
-//        return $this->userModel->findOrFail($search);
-//    }
-
 }

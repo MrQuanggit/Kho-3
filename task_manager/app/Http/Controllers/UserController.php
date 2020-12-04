@@ -1,10 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserCreateRequest;
 use App\Http\Services\UserService;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
@@ -18,8 +20,9 @@ class UserController extends Controller
 
     function index()
     {
+        $roles = Role::all();
         $users = $this->userService->getPagination();
-        return view('admin.users.list', compact('users'));
+        return view('admin.users.list', compact('users', 'roles'));
     }
 
     function create()
@@ -28,7 +31,7 @@ class UserController extends Controller
         return view('admin.users.create', compact('roles'));
     }
 
-    function store(Request $request)
+    function store(UserCreateRequest $request)
     {
         $this->userService->create($request);
         Session::flash('success', 'Tạo mới khách hàng thành công');
@@ -39,7 +42,7 @@ class UserController extends Controller
         $users = User::where('id','=',$id)->get();
         return view('admin.users.show', compact('users'));
     }
-    public function edit($id, Request $request)
+    public function edit($id)
     {
         $users = User::where('id','=',$id)->get();
         return view('admin.users.edit', compact('users'));
@@ -63,9 +66,15 @@ class UserController extends Controller
 
     public function destroy(Request $request)
     {
-        User::find($request->id)->delete();
-        Session::flash('success', 'Xóa khách hàng thành công');
-        return redirect()->route('users.index');
+        $user_role = DB::table('role_user')->where('user_id',$request->id)->get();
+        if(empty($user_role)) {
+            $message = "Can't Delete This User !";
+            return redirect()->route('users.index')->with('error',$message);
+        } else {
+            User::where('id',$request->id)->delete();
+            $message = "Delete This User !";
+            return redirect()->route('users.index')->with('success',$message);
+        }
     }
 
 }

@@ -26,11 +26,10 @@ Route::get('login', [\App\Http\Controllers\AuthController::class, 'showFormLogin
 Route::post('login', [\App\Http\Controllers\AuthController::class, 'login'])->name('auth.login');
 
 Route::middleware(['auth', 'checkActiveAccount'])->prefix('admin')->group(function () {
-//    ::middleware(['auth', 'checkActiveAccount'])->
     Route::get('logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('auth.logout');
     Route::get('dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+        return view('admin.dashboard');}
+        )->name('admin.dashboard');
     Route::prefix('users')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('users.index');
         Route::get('create', [UserController::class, 'create'])->name('users.create');
@@ -44,9 +43,7 @@ Route::middleware(['auth', 'checkActiveAccount'])->prefix('admin')->group(functi
     Route::prefix('categories')->group(function (){
         Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
         Route::get('/{id}/posts', [CategoryController::class, 'getPostByCategoryId'])->name('categories.getPostByCategoryId');
-
     });
-
     Route::prefix('posts')->group(function (){
         Route::get('/', [PostController::class, 'index'])->name('posts.index');
 

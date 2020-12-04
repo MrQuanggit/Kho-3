@@ -11,9 +11,8 @@ class CategoryController extends Controller
         $categories = Category::all();
         return view('admin.categories.list', compact('categories'));
     }
-
     function getPostByCategoryId($id) {
-        $posts = Category::findOrFail($id)->posts()->first();
+        $posts = Category::findOrFail($id)->posts()->get();
         return redirect()->route('posts.index', compact('posts'));
     }
 }
