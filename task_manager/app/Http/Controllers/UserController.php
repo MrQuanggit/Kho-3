@@ -64,14 +64,14 @@ class UserController extends Controller
         return view('admin.users.list', compact('users', 'search'));
     }
 
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $user_role = DB::table('role_user')->where('user_id',$request->id)->get();
-        if(empty($user_role)) {
+        $user_role = DB::table('role_user')->where('user_id',$id)->get();
+        if(count($user_role)) {
             $message = "Can't Delete This User !";
             return redirect()->route('users.index')->with('error',$message);
         } else {
-            User::where('id',$request->id)->delete();
+            User::where('id',$id)->delete();
             $message = "Delete This User !";
             return redirect()->route('users.index')->with('success',$message);
         }

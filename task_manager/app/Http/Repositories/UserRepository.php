@@ -17,8 +17,6 @@ class UserRepository
 
     function save($user, $roles = null)
     {
-//        $user->save();
-//        $user->roles()->sync($roles);
         DB::beginTransaction();
         try {
             $user->save();
