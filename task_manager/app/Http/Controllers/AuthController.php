@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\UserService;
+use App\Models\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +17,7 @@ class AuthController extends Controller
         $this->userService = $userService;
     }
 
-    function showFormLogin(Request $request)
+    function showFormLogin()
     {
         return view('admin.login');
     }
@@ -27,7 +29,7 @@ class AuthController extends Controller
             $request->session()->push('login', true);
             return redirect()->route('admin.dashboard');
         } else {
-            $message = "Login Fail, Please Try Again, Thank!";
+            $message = "Login Fail, Please Try Again!";
             return redirect()->route('login')->with('error',$message);
         }
     }

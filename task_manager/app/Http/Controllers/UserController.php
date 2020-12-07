@@ -34,8 +34,8 @@ class UserController extends Controller
     function store(UserCreateRequest $request)
     {
         $this->userService->create($request);
-        Session::flash('success', 'Tạo mới khách hàng thành công');
-        return redirect()->route('users.index');
+        $message = 'Tạo mới khách hàng thành công';
+        return redirect()->route('users.index')->with('success',$message);
     }
     public function show($id)
     {
@@ -50,8 +50,8 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $this->userService->update($request, $id);
-        Session::flash('success', 'Cập nhật khách hàng thành công');
-        return redirect()->route('users.index');
+        $message = 'Cập nhật khách hàng thành công';
+        return redirect()->route('users.index')->with('info',$message);
     }
 
     public function search(Request $request)

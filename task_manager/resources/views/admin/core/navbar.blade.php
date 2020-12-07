@@ -17,13 +17,17 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-{{--                    {{ \Illuminate\Support\Facades\Auth::user()->username }}--}}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href=""></a>
                     <a class="dropdown-item" href="{{ route('auth.logout') }}">Đăng xuất</a>
-
                 </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('cart.showCart')}}">Cart <span>({{session('cart') ? session('cart')->totalQty:0}})</span></a>
+            </li>
+            <li class="nav-item active">
+                <span class="nav-link">Welcome, {{\Illuminate\Support\Facades\Auth::user()->username}}</span>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">

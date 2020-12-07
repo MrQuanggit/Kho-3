@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerControllerResource;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +48,11 @@ Route::middleware(['auth', 'checkActiveAccount'])->prefix('admin')->group(functi
     });
     Route::prefix('posts')->group(function (){
         Route::get('/', [PostController::class, 'index'])->name('posts.index');
-
+    });
+    Route::prefix('cart')->group(function (){
+        Route::get('/{id}/add-to-cart', [CartController::class, 'addToCart'])->name('cart.addToCart');
+        Route::get('cart', [CartController::class, 'showCart'])->name('cart.showCart');
+        Route::get('/', [ProductController::class, 'show'])->name('cart');
+        Route::get('delete', [CartController::class, 'deleteAll'])->name('cart.deleteAll');
     });
 });
