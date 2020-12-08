@@ -43,11 +43,6 @@
                     </table>
                 </div>
                 <div style="text-align: center">{{ $users->links() }}</div>
-                <style>
-                    .w-5{
-                        display: none;
-                    }
-                </style>
             </div>
         </div>
     </div>

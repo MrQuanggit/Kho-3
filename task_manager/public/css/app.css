@@ -136,7 +136,7 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
 }
 
 /********************* Shopping Demo-5 **********************/
-.product-image5 .pic-1,.product-image5 .pic-2{backface-visibility:hidden;transition:all .5s ease 0s}
+.product-image5 .pic-1,.product-image5 .pic-2{-webkit-backface-visibility:hidden;backface-visibility:hidden;transition:all .5s ease 0s}
 .product-grid5{font-family:Poppins,sans-serif;position:relative}
 .product-grid5 .product-image5{overflow:hidden;position:relative}
 .product-grid5 .product-image5 a{display:block}
@@ -275,3 +275,4 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
 .w-5{
     display: none;
 }
+

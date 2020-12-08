@@ -33,4 +33,29 @@ class Cart
         $this->totalQty++;
         $this->totalPrice+=$product->price;
     }
+
+    function minus($product){
+        $storeItem = [
+            "product"=>$product,
+            "totalQty"=>0,
+            "totalPrice"=>0,
+        ];
+        if(array_key_exists($product->id,$this->items)) {
+            $storeItem = $this->items[$product->id];
+        }
+        $storeItem['totalQty']--;
+        $storeItem['totalPrice']-=$product->price;
+        $this->items[$product->id] = $storeItem;
+        $this->totalQty++;
+        $this->totalPrice-=$product->price;
+    }
+
+    function remove($product){
+        if(array_key_exists($product->id,$this->items)) {
+            $deleteItem = $this->items[$product->id];
+            $this->totalQty -= $deleteItem['totalQty'];
+            $this->totalPrice -= $deleteItem['totalPrice'];
+            unset($this->items[$product->id]);
+        }
+    }
 }

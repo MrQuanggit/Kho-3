@@ -18167,7 +18167,7 @@ $.widget( "ui.tabs", {
 		return {
 
 			// Support: IE <11 only
-			// Strip any hash that exists to prevent errors with the Ajax request
+			// Strip any hash that exists to prevent errors with the ajax request
 			url: anchor.attr( "href" ).replace( /#.*$/, "" ),
 			beforeSend: function( jqXHR, settings ) {
 				return that._trigger( "beforeLoad", event,

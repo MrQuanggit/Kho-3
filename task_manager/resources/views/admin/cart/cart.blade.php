@@ -15,6 +15,7 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @if(isset($cart))
                     @foreach($cart->items as $item)
                         <tr>
                             <td class="col-sm-8 col-md-6">
@@ -27,50 +28,43 @@
                                     </div>
                                 </div></td>
                             <td class="col-sm-1 col-md-1" style="text-align: center">
+                                <a href="{{route('cart.minusToCart',$item['product']->id)}}"><i class="fas fa-minus"></i></a>
                                 <span>{{$item['totalQty']}}</span>
+                                <a href="{{route('cart.addToCart',$item['product']->id)}}"><i class="fas fa-plus"></i></a>
                             </td>
                             <td class="col-sm-1 col-md-1 text-center"><strong>{{$item['product']->price}}</strong></td>
                             <td class="col-sm-1 col-md-1 text-center"><strong>{{$item['totalPrice']}}</strong></td>
-                            <td class="col-sm-1 col-md-1">
-                                <button type="button" class="btn btn-danger">
-                                    <span class="glyphicon glyphicon-remove"></span> Remove
-                                </button></td>
+                            <td class="col-sm-1 col-md-1"><a class="btn btn-danger" onclick="return confirm('Do you want to delete this product ?')" href="{{$item['product']->id}}">Delete</a></td>
                         </tr>
                     @endforeach
-
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong>$24.59</strong></h5></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Estimated shipping</h5></td>
-                        <td class="text-right"><h5><strong>$6.94</strong></h5></td>
-                    </tr>
                     <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td><h3>Total</h3></td>
-                        <td class="text-right"><h3><strong>{{$cart->totalPrice}}</strong></h3></td>
+                        <td class="text-right"><h3><strong>$ {{$cart->totalPrice}}</strong></h3></td>
                     </tr>
                     <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td>
-                            <a class="btn btn-warning" href="">Delete All</a>
+                            <a class="btn btn-warning" onclick="return confirm('Do you want to delete all the cart ?')" href="{{route('cart.delete')}}">Delete All</a>
                         <td>
                             <button type="button" class="btn btn-success">
                                 Checkout <span class="glyphicon glyphicon-play"></span>
                             </button></td>
                     </tr>
                     </tbody>
+                    @else()
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Gio Hang Trong</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    @endif
                 </table>
             </div>
         </div>

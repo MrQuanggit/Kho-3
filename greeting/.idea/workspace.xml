@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b20477e7-f336-4f7a-b083-b487ed592621" name="Default Changelist" comment="" />
+    <list default="true" id="b20477e7-f336-4f7a-b083-b487ed592621" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Kho-3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../laravel-blog" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +20,9 @@
         <option value="composer.json" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -128,6 +134,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1kjHZff8bdP2XyQSqvEKRWLu2Su" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -169,24 +176,22 @@
       <workItem from="1606266833364" duration="12100000" />
       <workItem from="1606297748837" duration="750000" />
       <workItem from="1606353017717" duration="7000" />
+      <workItem from="1607324004334" duration="58000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1606290676984">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1606290676984" />
-    <state x="791" y="479" width="399" height="156" key="NewPhpFileDialog" timestamp="1606287285473">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="791" y="479" width="399" height="156" key="NewPhpFileDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1606287285473" />
-    <state x="485" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1606207780667">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="485" y="188" width="1022" height="737" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1606207780667" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

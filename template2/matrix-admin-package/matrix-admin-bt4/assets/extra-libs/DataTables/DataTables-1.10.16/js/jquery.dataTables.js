@@ -212,7 +212,7 @@
 		 * Add a single new row or multiple rows of data to the table. Please note
 		 * that this is suitable for client-side processing only - if you are using
 		 * server-side processing (i.e. "bServerSide": true), then to add data, you
-		 * must add it to the data source, i.e. the server-side, through an Ajax call.
+		 * must add it to the data source, i.e. the server-side, through an ajax call.
 		 *  @param {array|object} data The data to be added to the table. This can be:
 		 *    <ul>
 		 *      <li>1D array of data - add a single row with the data provided</li>
@@ -310,7 +310,7 @@
 		 *    $(document).ready(function() {
 		 *      var oTable = $('#example').dataTable();
 		 *
-		 *      // Immediately 'nuke' the current rows (perhaps waiting for an Ajax callback...)
+		 *      // Immediately 'nuke' the current rows (perhaps waiting for an ajax callback...)
 		 *      oTable.fnClearTable();
 		 *    } );
 		 */
@@ -1078,9 +1078,9 @@
 			
 			if ( oLanguage.sUrl )
 			{
-				/* Get the language definitions from a file - because this Ajax call makes the language
+				/* Get the language definitions from a file - because this ajax call makes the language
 				 * get async to the remainder of this function we use bInitHandedOff to indicate that
-				 * _fnInitialise will be fired by the returned Ajax handler, rather than the constructor
+				 * _fnInitialise will be fired by the returned ajax handler, rather than the constructor
 				 */
 				$.ajax( {
 					dataType: 'json',
@@ -1275,9 +1275,9 @@
 					}
 				}
 				else if ( oSettings.bDeferLoading || _fnDataSource( oSettings ) == 'dom' ) {
-					/* Grab the data from the page - only do this when deferred loading or no Ajax
+					/* Grab the data from the page - only do this when deferred loading or no ajax
 					 * source since there is no point in reading the DOM data if we are then going
-					 * to replace it with Ajax data
+					 * to replace it with ajax data
 					 */
 					_fnAddTr( oSettings, $(oSettings.nTBody).children('tr') );
 				}
@@ -3807,7 +3807,7 @@
 	}
 	
 	/**
-	 * Create an Ajax call based on the table's settings, taking into account that
+	 * Create an ajax call based on the table's settings, taking into account that
 	 * parameters can have multiple forms, and backwards compatibility.
 	 *
 	 * @param {object} oSettings dataTables settings object
@@ -3893,7 +3893,7 @@
 						_fnLog( oSettings, 0, 'Invalid JSON response', 1 );
 					}
 					else if ( xhr.readyState === 4 ) {
-						_fnLog( oSettings, 0, 'Ajax error', 7 );
+						_fnLog( oSettings, 0, 'ajax error', 7 );
 					}
 				}
 	
@@ -3943,7 +3943,7 @@
 	
 	
 	/**
-	 * Update the table using an Ajax call
+	 * Update the table using an ajax call
 	 *  @param {object} settings dataTables settings object
 	 *  @returns {boolean} Block the table drawing or not
 	 *  @memberof DataTable#oApi
@@ -4716,7 +4716,7 @@
 	
 		// If there is default sorting required - let's do it. The sort function
 		// will do the drawing for us. Otherwise we draw the table regardless of the
-		// Ajax source - this allows the table to look initialised for Ajax sourcing
+		// ajax source - this allows the table to look initialised for ajax sourcing
 		// data (show 'loading' message possibly)
 		_fnReDraw( settings );
 	
@@ -4755,7 +4755,7 @@
 	/**
 	 * Draw the table for the first time, adding all required features
 	 *  @param {object} oSettings dataTables settings object
-	 *  @param {object} [json] JSON from the server that completed the table, if using Ajax source
+	 *  @param {object} [json] JSON from the server that completed the table, if using ajax source
 	 *    with client-side processing (optional)
 	 *  @memberof DataTable#oApi
 	 */
@@ -4763,7 +4763,7 @@
 	{
 		settings._bInitComplete = true;
 	
-		// When data was added after the initialisation (data or Ajax) we need to
+		// When data was added after the initialisation (data or ajax) we need to
 		// calculate the column sizing
 		if ( json || settings.oInit.aaData ) {
 			_fnAdjustColumnSizing( settings );
@@ -7578,7 +7578,7 @@
 	
 	
 	/**
-	 * Get the JSON response from the last Ajax request that DataTables made to the
+	 * Get the JSON response from the last ajax request that DataTables made to the
 	 * server. Note that this returns the JSON from the first table in the current
 	 * context.
 	 *
@@ -7596,7 +7596,7 @@
 	
 	
 	/**
-	 * Get the data submitted in the last Ajax request
+	 * Get the data submitted in the last ajax request
 	 */
 	_api_register( 'ajax.params()', function () {
 		var ctx = this.context;
@@ -7610,7 +7610,7 @@
 	
 	
 	/**
-	 * Reload tables from the Ajax data source. Note that this function will
+	 * Reload tables from the ajax data source. Note that this function will
 	 * automatically re-draw the table when the remote data has been loaded.
 	 *
 	 * @param {boolean} [reset=true] Reset (default) or hold the current paging
@@ -7626,12 +7626,12 @@
 	
 	
 	/**
-	 * Get the current Ajax URL. Note that this returns the URL from the first
+	 * Get the current ajax URL. Note that this returns the URL from the first
 	 * table in the current context.
 	 *
-	 * @return {string} Current Ajax source URL
+	 * @return {string} Current ajax source URL
 	 *//**
-	 * Set the Ajax URL. Note that this will set the URL for all tables in the
+	 * Set the ajax URL. Note that this will set the URL for all tables in the
 	 * current context.
 	 *
 	 * @param {string} url URL to set.
@@ -7670,7 +7670,7 @@
 	
 	
 	/**
-	 * Load data from the newly set Ajax URL. Note that this method is only
+	 * Load data from the newly set ajax URL. Note that this method is only
 	 * available when `ajax.url()` is used to set a URL. Additionally, this method
 	 * has the same effect as calling `ajax.reload()` but is provided for
 	 * convenience when setting a new URL. Like `ajax.reload()` it will
@@ -9657,7 +9657,7 @@
 		"_bAttrSrc": false,
 	
 		/**
-		 * Developer definable function that is called whenever a cell is created (Ajax source,
+		 * Developer definable function that is called whenever a cell is created (ajax source,
 		 * etc) or processed for input (DOM source). This can be used as a compliment to mRender
 		 * allowing you to modify the DOM element (add background colour for example) when the
 		 * element is available.
@@ -9849,7 +9849,7 @@
 		 * An array of data to use for the table, passed in at initialisation which
 		 * will be used in preference to any data which is already in the DOM. This is
 		 * particularly useful for constructing tables purely in Javascript, for
-		 * example with a custom Ajax call.
+		 * example with a custom ajax call.
 		 *  @type array
 		 *  @default null
 		 *
@@ -9962,7 +9962,7 @@
 	
 		/**
 		 * DataTables can be instructed to load data to display in the table from a
-		 * Ajax source. This option defines how that Ajax call is made and where to.
+		 * ajax source. This option defines how that ajax call is made and where to.
 		 *
 		 * The `ajax` property has three different modes of operation, depending on
 		 * how it is defined. These are:
@@ -9982,7 +9982,7 @@
 		 *
 		 * As an object, the parameters in the object are passed to
 		 * [jQuery.ajax](http://api.jquery.com/jQuery.ajax/) allowing fine control
-		 * of the Ajax request. DataTables has a number of default parameters which
+		 * of the ajax request. DataTables has a number of default parameters which
 		 * you can override using this option. Please refer to the jQuery
 		 * documentation for a full description of the options available, although
 		 * the following parameters provide additional options in DataTables or
@@ -9999,7 +9999,7 @@
 		 *
 		 * * `dataSrc` - By default DataTables will look for the property `data` (or
 		 *   `aaData` for compatibility with DataTables 1.9-) when obtaining data
-		 *   from an Ajax source or for server-side processing - this parameter
+		 *   from an ajax source or for server-side processing - this parameter
 		 *   allows that property to be changed. You can use Javascript dotted
 		 *   object notation to get a data source for multiple levels of nesting, or
 		 *   it my be used as a function. As a function it takes a single parameter,
@@ -10015,9 +10015,9 @@
 		 * `function`
 		 * ----------
 		 *
-		 * As a function, making the Ajax call is left up to yourself allowing
-		 * complete control of the Ajax request. Indeed, if desired, a method other
-		 * than Ajax could be used to obtain the required data, such as Web storage
+		 * As a function, making the ajax call is left up to yourself allowing
+		 * complete control of the ajax request. Indeed, if desired, a method other
+		 * than ajax could be used to obtain the required data, such as Web storage
 		 * or an AIR database.
 		 *
 		 * The function is given four parameters and no return is required. The
@@ -10039,14 +10039,14 @@
 		 *  @since 1.10.0
 		 *
 		 * @example
-		 *   // Get JSON data from a file via Ajax.
+		 *   // Get JSON data from a file via ajax.
 		 *   // Note DataTables expects data in the form `{ data: [ ...data... ] }` by default).
 		 *   $('#example').dataTable( {
 		 *     "ajax": "data.json"
 		 *   } );
 		 *
 		 * @example
-		 *   // Get JSON data from a file via Ajax, using `dataSrc` to change
+		 *   // Get JSON data from a file via ajax, using `dataSrc` to change
 		 *   // `data` to `tableData` (i.e. `{ tableData: [ ...data... ] }`)
 		 *   $('#example').dataTable( {
 		 *     "ajax": {
@@ -10056,7 +10056,7 @@
 		 *   } );
 		 *
 		 * @example
-		 *   // Get JSON data from a file via Ajax, using `dataSrc` to read data
+		 *   // Get JSON data from a file via ajax, using `dataSrc` to read data
 		 *   // from a plain array rather than an array in an object
 		 *   $('#example').dataTable( {
 		 *     "ajax": {
@@ -10249,7 +10249,7 @@
 	
 		/**
 		 * Deferred rendering can provide DataTables with a huge speed boost when you
-		 * are using an Ajax or JS data source for the table. This option, when set to
+		 * are using an ajax or JS data source for the table. This option, when set to
 		 * true, will cause DataTables to defer the creation of the table elements for
 		 * each row until they are needed for a draw - saving a significant amount of
 		 * time.
@@ -10769,7 +10769,7 @@
 		 *  @type function
 		 *  @param {object} settings DataTables settings object
 		 *  @param {object} json The JSON object request from the server - only
-		 *    present if client-side Ajax sourced data is used
+		 *    present if client-side ajax sourced data is used
 		 *
 		 *  @dtopt Callbacks
 		 *  @name DataTable.defaults.initComplete
@@ -10871,7 +10871,7 @@
 		 * __Deprecated__ The functionality provided by this parameter has now been
 		 * superseded by that provided through `ajax`, which should be used instead.
 		 *
-		 *  It is often useful to send extra data to the server when making an Ajax
+		 *  It is often useful to send extra data to the server when making an ajax
 		 * request - for example custom filtering information, and this callback
 		 * function makes it trivial to send extra information to the server. The
 		 * passed in parameter is the data set that has been constructed by
@@ -10879,7 +10879,7 @@
 		 *  @type function
 		 *  @param {array} data Data array (array of objects which are name/value
 		 *    pairs) that has been constructed by DataTables and will be sent to the
-		 *    server. In the case of Ajax sourced data with server-side processing
+		 *    server. In the case of ajax sourced data with server-side processing
 		 *    this will be an empty array, for server-side processing there will be a
 		 *    significant number of parameters!
 		 *  @returns {undefined} Ensure that you modify the data array passed in,
@@ -11014,7 +11014,7 @@
 		 *      $('#example').dataTable( {
 		 *        "stateSave": true,
 		 *        "stateSaveCallback": function (settings, data) {
-		 *          // Send an Ajax request to the server with the state object
+		 *          // Send an ajax request to the server with the state object
 		 *          $.ajax( {
 		 *            "url": "/state_save",
 		 *            "data": data,
@@ -11581,11 +11581,11 @@
 	
 	
 			/**
-			 * When using Ajax sourced data and during the first draw when DataTables is
+			 * When using ajax sourced data and during the first draw when DataTables is
 			 * gathering the data, this message is shown in an empty row in the table to
 			 * indicate to the end user the the data is being loaded. Note that this
 			 * parameter is not used when loading data by server-side processing, just
-			 * Ajax sourced data with client-side processing.
+			 * ajax sourced data with client-side processing.
 			 *  @type string
 			 *  @default Loading...
 			 *
@@ -11748,7 +11748,7 @@
 		 * superseded by that provided through `ajax`, which should be used instead.
 		 *
 		 * By default DataTables will look for the property `data` (or `aaData` for
-		 * compatibility with DataTables 1.9-) when obtaining data from an Ajax
+		 * compatibility with DataTables 1.9-) when obtaining data from an ajax
 		 * source or for server-side processing - this parameter allows that
 		 * property to be changed. You can use Javascript dotted object notation to
 		 * get a data source for multiple levels of nesting.
@@ -11962,8 +11962,8 @@
 		 * __Deprecated__ The functionality provided by this parameter has now been
 		 * superseded by that provided through `ajax`, which should be used instead.
 		 *
-		 * Set the HTTP method that is used to make the Ajax call for server-side
-		 * processing or Ajax sourced data.
+		 * Set the HTTP method that is used to make the ajax call for server-side
+		 * processing or ajax sourced data.
 		 *  @type string
 		 *  @default GET
 		 *
@@ -12200,7 +12200,7 @@
 	
 	
 		/**
-		 * Developer definable function that is called whenever a cell is created (Ajax source,
+		 * Developer definable function that is called whenever a cell is created (ajax source,
 		 * etc) or processed for input (DOM source). This can be used as a compliment to mRender
 		 * allowing you to modify the DOM element (add background colour for example) when the
 		 * element is available.
@@ -12915,7 +12915,7 @@
 			/**
 			 * Delay the creation of TR and TD elements until they are actually
 			 * needed by a driven page draw. This can give a significant speed
-			 * increase for Ajax source and Javascript source data, but makes no
+			 * increase for ajax source and Javascript source data, but makes no
 			 * difference at all fro DOM and server-side processing tables.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
@@ -12962,7 +12962,7 @@
 	
 			/**
 			 * Processing indicator enable flag whenever DataTables is enacting a
-			 * user request - typically an Ajax request for server-side processing.
+			 * user request - typically an ajax request for server-side processing.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
 			 *  @type boolean
@@ -13509,14 +13509,14 @@
 		"jqXHR": null,
 	
 		/**
-		 * JSON returned from the server in the last Ajax request
+		 * JSON returned from the server in the last ajax request
 		 *  @type object
 		 *  @default undefined
 		 */
 		"json": undefined,
 	
 		/**
-		 * Data submitted as part of the last Ajax request
+		 * Data submitted as part of the last ajax request
 		 *  @type object
 		 *  @default undefined
 		 */
@@ -13531,7 +13531,7 @@
 		"fnServerData": null,
 	
 		/**
-		 * Functions which are called prior to sending an Ajax request so extra
+		 * Functions which are called prior to sending an ajax request so extra
 		 * parameters can easily be sent to the server
 		 *  @type array
 		 *  @default []
@@ -13573,7 +13573,7 @@
 		"iDraw": 0,
 	
 		/**
-		 * Indicate if a redraw is being done - useful for Ajax
+		 * Indicate if a redraw is being done - useful for ajax
 		 *  @type boolean
 		 *  @default false
 		 */
@@ -15115,13 +15115,13 @@
 
 	/**
 	 * DataTables initialisation complete event, fired when the table is fully
-	 * drawn, including Ajax data loaded, if Ajax data is required.
+	 * drawn, including ajax data loaded, if ajax data is required.
 	 *  @name DataTable#init.dt
 	 *  @event
 	 *  @param {event} e jQuery event object
 	 *  @param {object} oSettings DataTables settings object
 	 *  @param {object} json The JSON object request from the server - only
-	 *    present if client-side Ajax sourced data is used</li></ol>
+	 *    present if client-side ajax sourced data is used</li></ol>
 	 */
 
 	/**
@@ -15171,7 +15171,7 @@
 	 */
 
 	/**
-	 * Ajax (XHR) event, fired whenever an Ajax request is completed from a
+	 * ajax (XHR) event, fired whenever an ajax request is completed from a
 	 * request to made to the server for new data. This event is called before
 	 * DataTables processed the returned data, so it can also be used to pre-
 	 * process the data returned from the server, if needed.
