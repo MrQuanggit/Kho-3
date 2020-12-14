@@ -6,7 +6,7 @@
                 <h5 class="card-header">Chỉnh sửa người dùng</h5>
                 <div class="card-body">
                     @foreach($users as $key => $user)
-                    <form action="{{ route('users.update', $user->id) }}" method="post">
+                    <form action="{{ route('users.update', $user->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label>Username</label>
@@ -23,6 +23,11 @@
                         <div class="form-group">
                             <label >Phone</label>
                             <input name="phone" value="{{ $user->phone }}" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label >Images</label>
+                            <img style="width: 200px" src="{{ asset('storage/'.substr($user->images, 7)) }}" alt="">
+                            <input name="image" value="" type="file" class="form-control">
                         </div>
 
                         <div class="form-group">

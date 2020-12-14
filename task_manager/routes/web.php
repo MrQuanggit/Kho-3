@@ -49,6 +49,7 @@ Route::middleware(['auth', 'checkActiveAccount'])->prefix('admin')->group(functi
     });
     Route::prefix('posts')->group(function (){
         Route::get('/', [PostController::class, 'index'])->name('posts.index');
+        Route::get('/search', [PostController::class, 'search']);
     });
     Route::prefix('cart')->group(function (){
         Route::get('/{id}/add-to-cart', [CartController::class, 'addToCart'])->name('cart.addToCart');

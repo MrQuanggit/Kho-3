@@ -17,7 +17,8 @@
                         <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Tên</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Image</th>
                             <th scope="col">Email</th>
                             <th scope="col">SDT</th>
                             <th scope="col">Roles</th>
@@ -29,14 +30,19 @@
                             <tr>
                                 <td scope="row">{{ $key + 1 }}</td>
                                 <td>{{ $user->username }}</td>
+                                <td><img style="width: 100px" src="{{ asset('storage/'.substr($user->images, 7)) }}" alt=""></td>
                                 <td>{{ $user->mail }}</td>
                                 <td>{{ $user->phone }}</td>
                                 <td>@foreach($user->roles as $role)
                                {{ $role->name }}<br>
                                 @endforeach</td>
-                                <td><a href="{{ route('users.show',$user->id) }}" style="padding: 5px" class="btn btn-primary">Show</a>
-                                    <a href="{{ route('users.edit',$user->id) }}" style="padding: 5px" class="btn btn-warning">Edit</a>
-                                    <a href="{{ route('users.destroy',$user->id) }}" style="padding: 5px" class="btn btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa?')">Delete</a></td>
+                                <td><a href="{{ route('users.show',$user->id) }}" style="padding: 5px"
+                                       class="btn btn-primary">Show</a>
+                                    <a href="{{ route('users.edit',$user->id) }}" style="padding: 5px"
+                                       class="btn btn-warning">Edit</a>
+                                    <a href="{{ route('users.destroy',$user->id) }}" style="padding: 5px"
+                                       class="btn btn-danger"
+                                       onclick="return confirm('Bạn chắc chắn muốn xóa?')">Delete</a></td>
                             </tr>
                         @endforeach
                         </tbody>

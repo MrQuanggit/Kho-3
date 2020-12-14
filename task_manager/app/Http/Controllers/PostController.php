@@ -11,4 +11,7 @@ class PostController extends Controller
         $posts = Post::all();
         return view('admin.posts.list', compact('posts'));
     }
+    function search(Request $request) {
+
+    }
 }
