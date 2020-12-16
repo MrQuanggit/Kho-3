@@ -143,11 +143,11 @@
         "closeButton": true,
         "debug": false,
         "newestOnTop": false,
-        "progressBar": false,
+        "progressBar": true,
         "positionClass": "toast-top-right",
         "preventDuplicates": false,
         "onclick": null,
-        "showDuration": "300",
+        "showDuration": "500",
         "hideDuration": "1000",
         "timeOut": "5000",
         "extendedTimeOut": "1000",
@@ -159,17 +159,17 @@
 </script>
 @if(\Illuminate\Support\Facades\Session::has('error'))
     <script>
-        toastr.error("{!! Session::get('error') !!}")
+        toastr["error"]("{!! Session::get('error') !!}", "Error")
     </script>
 @endif
 @if(\Illuminate\Support\Facades\Session::has('success'))
     <script>
-        toastr.success("{!! Session::get('success') !!}")
+        toastr["success"]("{!! Session::get('success') !!}", "Success")
     </script>
 @endif
 @if(\Illuminate\Support\Facades\Session::has('info'))
     <script>
-        toastr.info("{!! Session::get('info') !!}")
+        toastr["info"]("{!! Session::get('info') !!}", "Info")
     </script>
 @endif
 </body>

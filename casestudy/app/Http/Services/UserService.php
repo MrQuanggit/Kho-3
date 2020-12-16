@@ -68,6 +68,4 @@ class UserService implements ServiceInterface {
             $obj->user_image = $path;
         }
     }
-
-
 }

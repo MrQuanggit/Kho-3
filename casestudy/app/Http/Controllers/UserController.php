@@ -18,8 +18,9 @@ class UserController extends Controller
     }
 
     public function index() {
+        $roles = Role::all();
         $users = User::all();
-        return view('admin.users.list', compact('users'));
+        return view('admin.users.list', compact('users', 'roles'));
     }
 
     public function create() {
@@ -37,7 +38,7 @@ class UserController extends Controller
         $user = $this->userService->findById($id);
         $user->delete();
         $message = 'Successfully Deleted The User!';
-        return redirect()->route('users.index')->with('success',$message);;
+        return redirect()->route('users.index')->with('success',$message);
     }
 
     public function edit($id) {

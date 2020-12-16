@@ -11,7 +11,14 @@ class Category extends Model
     protected $table = 'categories';
     protected $primaryKey = 'id';
 
+    protected $fillable = [
+        'name',
+        'description',
+    ];
+
     function products() {
         return $this->hasMany(Product::class);
     }
+
+    public $timestamps = false;
 }

@@ -32,14 +32,14 @@
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input id="password" name="password" type="password"
-                                   class="form-control @error('password') is-invalid @enderror">
+                            <input id="user_password" name="user_password" type="password"
+                                   class="form-control @error('user_password') is-invalid @enderror">
                             <div>
                                 <img style="width: 5%; float: right"
                                      src="https://cdn3.iconfinder.com/data/icons/show-and-hide-password/100/show_hide_password-07-512.png"
                                      onclick="eyeFunction()">
                             </div>
-                            @error('password')
+                            @error('user_password')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <script type="text/javascript">
