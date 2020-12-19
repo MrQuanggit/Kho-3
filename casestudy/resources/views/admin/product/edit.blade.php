@@ -23,43 +23,33 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Stock</label>
-                            <input name="stock" type="text" value="{{ $product->stock }}" class="form-control">
-                            @error('stock')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label>View</label>
-                            <input name="stock" type="text" value="{{ $product->view }}" class="form-control">
-                            @error('view')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
                             <label>PriceEach</label>
-                            <input name="priceEach" type="text" value="{{ $product->priceEach }}" class="form-control">
+                            <input name="priceEach" type="text" value="{{ $product->priceEach }}"
+                                   class="form-control @error('priceEach') is-invalid @enderror" >
                             @error('priceEach')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label>Slug</label>
-                            <input name="slug" type="text" value="{{ $product->slug }}" class="form-control">
+                            <input name="slug" type="text" value="{{ $product->slug }}"
+                                   class="form-control @error('slug') is-invalid @enderror">
                             @error('slug')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label>Size</label>
-                            <input name="slug" type="text" value="{{ $product->slug }}" class="form-control">
+                            <input name="size" type="text" value="{{ $product->size }}"
+                                   class="form-control @error('size') is-invalid @enderror">
                             @error('size')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label>Image1</label>
-                            <input name="image1" type="file" value="{{ $product->image1 }}" class="form-control">
+                            <input name="image1" type="file" value="{{ $product->image1 }}"
+                                   class="form-control">
                             @error('image1')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror

@@ -1,0 +1,268 @@
+*{
+    box-sizing: border-box;
+    font-family: DWFutura, sans-serif;
+}
+/* MenuBar */
+.header {
+    color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    margin: 0 0 30px 0;
+    z-index: 1000;
+    background-color: rgba(0, 14, 34, 0.5);
+}
+.subHeader{
+    background-color: rgba(0, 14, 34, 0.7);
+}
+.logo {
+    line-height: 50px;
+    float: left;
+}
+.title {
+    margin-top: 10px;
+}
+.title h5 {
+    font-weight: bold;
+}
+.home {
+    height: 60px;
+    margin-top: 10px;
+}
+.menu {
+    text-align: center;
+    line-height: 50px;
+}
+.menu a {
+    color: #fff;
+    padding: 0 30px;
+    text-decoration: none;
+    transition: 0.5s;
+    font-size: 14px;
+    display: inline-block;
+    line-height: 20px;
+    margin-top: 15px;
+}
+#hide-card {
+    display: none;
+}
+.cool-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width .3s;
+}
+.cool-link:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
+
+.cards {
+    display: none;
+}
+.show-menu-btn,
+.hide-menu-btn {
+    transition: 0.5s;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+.menu a:hover,
+.show-menu-btn,
+.hide-menu-btn {
+    color: #7f8c8d;
+}
+.show-menu-btn {
+    float: left;
+}
+.show-menu-btn i {
+    line-height: 50px;
+    margin-right: 25px;
+}
+#check {
+    position: absolute;
+    visibility: hidden;
+    z-index: -999;
+}
+/* Reponsive Menu */
+@media screen and (max-width: 1100px) {
+    .show-menu-btn,
+    .hide-menu-btn {
+        display: block;
+    }
+    .menu {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        right: -100%;
+        top: 0;
+        padding: 80px 0;
+        line-height: normal;
+        text-align: center;
+        transition: 0.5s;
+    }
+    .menu a {
+        display: block;
+        padding: 20px;
+    }
+    #hide-card {
+        display: block;
+    }
+    .hide-menu-btn {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+    }
+    .title {
+        text-align: center;
+        font-size: 14px;
+    }
+    #check:checked ~ .menu {
+        right: 0;
+        padding-left: 20px;
+    }
+    .onSale .text-title {
+        font-size: 12px;
+    }
+    .group-product{
+        margin-top: 80px !important;
+    }
+}
+
+/*Body index*/
+.free-ship{
+    height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.free-ship .free-ship-element{
+    font-size: 12px;
+}
+.onSale{
+    height: 50px;
+    background-color: rgba(0, 14, 34, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.onSale .text-title {
+    font-weight: normal;
+    text-transform: uppercase;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+}
+
+/*Product Index Holiday*/
+.product-image5 .pic-1,.product-image5 .pic-2{backface-visibility:hidden;transition:all .5s ease 0s}
+.product-grid5{font-family:Poppins,sans-serif;position:relative}
+.product-grid5 .product-image5{overflow:hidden;position:relative}
+.product-grid5 .product-image5 a{display:block}
+.product-grid5 .product-image5 img{width:100%;height:auto}
+.product-image5 .pic-1{opacity:1}
+.product-grid5:hover .product-image5 .pic-1{opacity:0}
+.product-image5 .pic-2{width:100%;height:100%;opacity:0;position:absolute;top:0;left:0}
+.product-grid5:hover .product-image5 .pic-2{opacity:1}
+.product-grid5 .social{padding:0;margin:0;position:absolute;top:10px;right:10px}
+.product-grid5 .social li{display:block;margin:0 0 10px;transition:all .5s}
+.product-grid5 .social li:nth-child(2){opacity:0;transform:translateY(-50px)}
+.product-grid5:hover .social li:nth-child(2){opacity:1;transform:translateY(0)}
+.product-grid5 .social li:nth-child(3){opacity:0;transform:translateY(-50px)}
+.product-grid5:hover .social li:nth-child(3){opacity:1;transform:translateY(0);transition-delay:.2s}
+.product-grid5 .social li a{color:#888;background:#fff;font-size:14px;text-align:center;line-height:40px;height:40px;width:40px;border-radius:50%;display:block;transition:.5s ease 0s}
+.product-grid5 .social li a:hover{color:#fff;background-color:rgba(0, 14, 34, 0.8)}
+.product-grid5 .select-options{color:#777;background-color:#fff;font-size:13px;font-weight:400;text-align:center;text-transform:uppercase;padding:15px 5px;margin:0 auto;opacity:0;display:block;position:absolute;width:92%;left:0;bottom:-100px;right:0;transition:.5s ease 0s}
+.product-grid5 .select-options:hover{color:#fff;background-color:rgba(0, 14, 34, 0.8);text-decoration:none}
+.product-grid5:hover .select-options{opacity:1;bottom:10px}
+.product-grid5 .product-content{padding:20px 10px}
+.product-grid5 .title{font-size:15px;font-weight:600;text-transform:capitalize;margin:0 0 10px;transition:all .3s ease 0s}
+.product-grid5 .title a{color:#222}
+.product-grid5 .title a:hover{color:rgba(0, 14, 34, 0.8)}
+.product-grid5 .price{color:#222;font-size:13px;font-weight:500;letter-spacing:1px}
+@media only screen and (max-width:990px){.product-grid5{margin-bottom:30px}
+}
+
+/*Footer*/
+.fa-facebook {
+    color: #3b5998;
+    padding: 5px;
+}
+.fa-twitter {
+    color: #00aced;
+    padding: 5px;
+}
+.fa-google-plus-g {
+    color: #dd4b39;
+    padding: 5px;
+}
+.fa-instagram {
+    color: #517fa4;
+    padding: 5px;
+}
+.fa-youtube {
+    color: #bb0000;
+    padding: 5px;
+}
+footer {
+    background-color: rgba(0, 14, 34, 0.8);
+    color: #fff0f0;
+    padding: 5px;
+}
+/*image card group*/
+.card-group{
+    position: relative;
+    overflow: hidden;
+}
+.card-group:before{
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 220%;
+    background: rgba(0, 14, 34, 0.3);
+    top: -50%;
+    left: -100%;
+    z-index: 1;
+    transform: rotate(25deg);
+    transform-origin: center top 0;
+    transition: .5s;
+}
+.card-group:hover:before {
+    left: 10%;
+}
+.card-group img {
+    width: 100%;
+    padding: 10px;
+    height: auto;
+}
+.card-text {
+    width: 100%;
+    padding: 0 20px;
+    position: absolute;
+    top: -100%;
+    color: #fff;
+    left: 0;
+    z-index: 2;
+    transition: 1.1s;
+}
+.card-group:hover .card-text {
+    top: 80px;
+}
+.group-product{
+    margin-top: 140px;
+    margin-bottom: 20px;
+}
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus{
+    background-color: rgba(0, 14, 34, 1);
+    border-color: rgba(0, 14, 34, 1);
+}
+

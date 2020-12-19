@@ -1,4 +1,5 @@
 @extends('admin.layout.master')
+@section('page-title','Categories List')
 @section('content')
     <section class="content">
         <div class="container-fluid">
@@ -15,7 +16,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="table" class="text-center">
+                            <table id="table" class="text-center table table-striped">
                                 <thead>
                                 <tr>
                                     <th>ID</th>

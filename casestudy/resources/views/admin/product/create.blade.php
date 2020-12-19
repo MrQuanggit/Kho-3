@@ -1,4 +1,5 @@
 @extends('admin.layout.master')
+@section('page-title','Products List')
 @section('content')
     <div class="container">
         <div class="col-12 col-md-12 mt-4">
@@ -16,7 +17,7 @@
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <input name="user_name" value="{{ old('description') }}" type="text"
+                            <input name="description" value="{{ old('description') }}" type="text"
                                    class="form-control @error('description') is-invalid @enderror">
                             @error('description')
                             <div class="text-danger">{{ $message }}</div>
@@ -31,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <label>View</label>
-                            <input name="stock" type="text" value="{{ old('View') }}" class="form-control">
+                            <input name="view" type="text" value="0" class="form-control">
                             @error('view')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror

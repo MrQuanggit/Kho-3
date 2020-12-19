@@ -1,4 +1,5 @@
 @extends('admin.layout.master')
+@section('page-title','Products List')
 @section('content')
     <section class="content">
         <div class="container-fluid">
@@ -15,7 +16,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="table" class="text-center">
+                            <table id="table" class="text-center table table-striped">
                                 <thead>
                                 <tr>
                                     <th>Number</th>
@@ -41,7 +42,7 @@
                                                  class="img-border-radius avatar-40 img-fluid"></td>
                                         <td>{{$product->stock}}</td>
                                         <td>{{$product->priceEach}}</td>
-                                        <td>{{$product->category_id}}</td>
+                                        <td>{{$product->category->name}}</td>
                                         <td><a href="{{route('product.edit', $product->id)}}" style="padding: 5px"
                                                class="btn btn-warning">Edit</a>
                                             <a href="{{route('product.destroy', $product->id)}}" style="padding: 5px"

@@ -1,4 +1,5 @@
 @extends('admin.layout.master')
+@section('page-title','Users List')
 @section('content')
     <div class="container">
         <div class="col-12 col-md-12 mt-4">
@@ -32,14 +33,14 @@
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input id="user_password" name="user_password" type="password"
-                                   class="form-control @error('user_password') is-invalid @enderror">
+                            <input id="password" name="password" type="password"
+                                   class="form-control @error('password') is-invalid @enderror">
                             <div>
                                 <img style="width: 5%; float: right"
                                      src="https://cdn3.iconfinder.com/data/icons/show-and-hide-password/100/show_hide_password-07-512.png"
                                      onclick="eyeFunction()">
                             </div>
-                            @error('user_password')
+                            @error('password')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <script type="text/javascript">
@@ -47,10 +48,10 @@
 
                                 function eyeFunction() {
                                     if (x) {
-                                        document.getElementById('user_password').type = "text";
+                                        document.getElementById('password').type = "text";
                                         x = false;
                                     } else {
-                                        document.getElementById('user_password').type = "password";
+                                        document.getElementById('password').type = "password";
                                         x = true;
                                     }
                                 }

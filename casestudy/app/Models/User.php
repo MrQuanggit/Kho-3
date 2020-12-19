@@ -34,9 +34,9 @@ class User extends Authenticatable
         return '/storage/avatars/' .ltrim($this->user_image, '/public/avatars/');
     }
 
-    function role()
+    function rolee()
     {
-        return $this->belongsTo(Role::class, 'role');
+        return $this->belongsTo(Role::class, 'role','id');
     }
 
     public $timestamps = false;

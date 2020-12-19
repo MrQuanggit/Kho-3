@@ -1,4 +1,5 @@
 @extends('admin.layout.master')
+@section('page-title','Users List')
 @section('content')
     <section class="content">
         <div class="container-fluid">
@@ -15,17 +16,17 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="table" class="text-center">
+                            <table id="table" class="text-center table table-striped">
                                 <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Họ tên</th>
-                                    <th>Ảnh</th>
-                                    <th>Tên tài khoản</th>
-                                    <th>Địa chỉ Email</th>
-                                    <th>Vai trò</th>
-                                    <th>Trạng thái đăng nhập</th>
-                                    <th>Tùy chọn</th>
+                                    <th>Fullname</th>
+                                    <th>Image</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Option</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -42,13 +43,7 @@
                                                  class="img-border-radius avatar-40 img-fluid"></td>
                                         <td>{{$user->user_name}}</td>
                                         <td>{{$user->user_email}}</td>
-                                        <td>
-                                            @if($user->role == 1)
-                                                Admin
-                                            @else
-                                                Staff
-                                            @endif
-                                        </td>
+                                        <td>{{$user->rolee->name}}</td>
                                         <td>{{$user->status}}</td>
                                         <td><a href="{{route('users.edit', $user->id)}}" style="padding: 5px"
                                                class="btn btn-warning">Edit</a>
@@ -65,13 +60,13 @@
                                 <tfoot>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Họ tên</th>
-                                    <th>Ảnh</th>
-                                    <th>Tên tài khoản</th>
-                                    <th>Địa chỉ Email</th>
-                                    <th>Vai trò</th>
-                                    <th>Trạng thái đăng nhập</th>
-                                    <th>Tùy chọn</th>
+                                    <th>Fullname</th>
+                                    <th>Image</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Option</th>
                                 </tr>
                                 </tfoot>
                             </table>

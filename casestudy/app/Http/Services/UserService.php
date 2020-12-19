@@ -34,7 +34,7 @@ class UserService implements ServiceInterface {
         $obj->id = $request->id;
         $obj->name = $request->name;
         $obj->user_name = $request->user_name;
-        $obj->user_password = Hash::make($request->user_password);
+        $obj->password = Hash::make($request->password);
         $obj->status = 1;
         $obj->user_email = $request->user_email;
         $obj->user_phone = $request->user_phone;

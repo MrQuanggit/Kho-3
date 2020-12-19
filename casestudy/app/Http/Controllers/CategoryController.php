@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserCreateRequest;
+use App\Http\Requests\CategoryRequest;
 use App\Http\Services\CategoryService;
 use App\Models\Category;
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller {
@@ -24,7 +26,7 @@ class CategoryController extends Controller {
         return view('admin.category.create');
     }
 
-    public function store(Request $request) {
+    public function store(CategoryRequest $request) {
         $this->categoryService->add($request);
         $message = 'Successfully Created Category!';
         return redirect()->route('category.index')->with('success',$message);
@@ -35,7 +37,7 @@ class CategoryController extends Controller {
         return view('admin.category.edit', compact('category'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(CategoryRequest $request, $id) {
         $category = $this->categoryService->findById($id);
         $this->categoryService->update($request, $category);
         $message = 'Successfully Edited Category!';
@@ -43,9 +45,15 @@ class CategoryController extends Controller {
     }
 
     public function destroy($id) {
-        $category = $this->categoryService->findById($id);
-        $category->delete();
-        $message = 'Successfully Deleted Category!';
-        return redirect()->route('category.index')->with('success',$message);
+        $products = Product::where('category_id', $id)->get();
+        if(count($products)) {
+            $message = "Can't Delete This Category !";
+            return redirect()->route('category.index')->with('error',$message);
+        } else {
+            $category = $this->categoryService->findById($id);
+            $category->delete();
+            $message = 'Successfully Deleted Category!';
+            return redirect()->route('category.index')->with('success',$message);
+        }
     }
 }

@@ -51,3 +51,11 @@ Route::middleware(['auth', 'checkAccountActive'])->prefix('admin')->group(functi
         Route::get('{id}/delete', [ProductController::class, 'destroy'])->name('product.destroy');
     });
 });
+Route::prefix('index')->group(function() {
+    Route::get('/', function () {
+        return view('index.index');
+    });
+    Route::get('/product', function () {
+        return view('index.product');
+    });
+});

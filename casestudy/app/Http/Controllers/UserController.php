@@ -18,12 +18,14 @@ class UserController extends Controller
     }
 
     public function index() {
-        $roles = Role::all();
         $users = User::all();
-        return view('admin.users.list', compact('users', 'roles'));
+        return view('admin.users.list', compact('users'));
     }
 
     public function create() {
+//        if (!$this->userCan('admin')) {
+//            abort(403);
+//        }
         $roles = Role::all();
         return view('admin.users.create', compact('roles'));
     }
@@ -35,6 +37,9 @@ class UserController extends Controller
     }
 
     public function destroy($id){
+//        if (!$this->userCan('admin')) {
+//            abort(403);
+//        }
         $user = $this->userService->findById($id);
         $user->delete();
         $message = 'Successfully Deleted The User!';
@@ -42,6 +47,9 @@ class UserController extends Controller
     }
 
     public function edit($id) {
+//        if (!$this->userCan('admin')) {
+//            abort(403);
+//        }
         $roles = Role::all();
         $users = $this->userService->findById($id);
         return view('admin.users.edit', compact('users', 'roles'));
