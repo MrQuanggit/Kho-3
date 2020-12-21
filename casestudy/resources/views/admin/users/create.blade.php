@@ -87,6 +87,8 @@
                                 @foreach($roles as $role)
                                     <option value="{{ $role->id }}">{{ $role->name }}</option>
                                 @endforeach
+{{--                                <option value="admin">Admin</option>--}}
+{{--                                <option value="staff">Staff</option>--}}
                             </select>
                         </div>
                         <div class="form-group">

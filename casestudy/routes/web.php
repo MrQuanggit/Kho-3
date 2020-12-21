@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -52,10 +53,23 @@ Route::middleware(['auth', 'checkAccountActive'])->prefix('admin')->group(functi
     });
 });
 Route::prefix('index')->group(function() {
-    Route::get('/', function () {
+    Route::get('', function () {
         return view('index.index');
     });
-    Route::get('/product', function () {
-        return view('index.product');
+
+    Route::get('{id}/product', [ProductController::class, 'product'])->name('index.product');
+
+    Route::get('men', [ProductController::class, 'men'])->name('index.men');
+    Route::get('women', [ProductController::class, 'women'])->name('index.women');
+    Route::get('jewelry', [ProductController::class, 'jewelry'])->name('index.jewelry');
+    Route::get('onsale', [ProductController::class, 'onsale'])->name('index.onsale');
+
+    Route::prefix('cart')->group(function (){
+        Route::get('/{id}/add-to-cart', [CartController::class, 'addToCart'])->name('cart.addToCart');
+        Route::get('/{id}/minus-to-cart', [CartController::class, 'minusToCart'])->name('cart.minusToCart');
+        Route::get('cart', [CartController::class, 'showCart'])->name('cart.showCart');
+//        Route::get('/', [ProductController::class, 'show'])->name('cart');
+        Route::get('delete', [CartController::class, 'deleteCart'])->name('cart.delete');
+        Route::get('{id}', [CartController::class, 'deleteProduct'])->name('cart.deleteProduct');
     });
 });

@@ -40,5 +40,15 @@ class Product extends Model
         return '/storage/products/' .ltrim($this->image1, '/public/products/');
     }
 
+    public function getProductImage2() {
+        return '/storage/products/' .ltrim($this->image2, '/public/products/');
+    }
+    public function getProductImage3() {
+        return '/storage/products/' .ltrim($this->image3, '/public/products/');
+    }
+    public function getProductImage4() {
+        return '/storage/products/' .ltrim($this->image4, '/public/products/');
+    }
+
     public $timestamps = false;
 }

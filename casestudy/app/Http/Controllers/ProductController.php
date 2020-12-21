@@ -7,6 +7,7 @@ use App\Http\Services\ProductService;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -53,5 +54,16 @@ class ProductController extends Controller
         $this->productService->update($request, $product);
         $message = 'Successfully Update Product!';
         return redirect()->route('product.index', compact('category'))->with('info',$message);
+    }
+
+    public function men(){
+        $products = Product::where('category_id', '1')->get();
+        return view('index.category.men', compact('products'));
+    }
+
+    public function product($id){
+        $product = $this->productService->findById($id);
+        $categories = Product::where('category_id', $product->category_id)->get();
+        return view('index.product', compact('product', 'categories'));
     }
 }

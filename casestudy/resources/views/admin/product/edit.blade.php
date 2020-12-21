@@ -62,6 +62,27 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label>Image3</label>
+                            <input name="image3" type="file" value="{{ $product->image3 }}" class="form-control">
+                            @error('image3')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Image4</label>
+                            <input name="image4" type="file" value="{{ $product->image4 }}" class="form-control">
+                            @error('image4')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Image5</label>
+                            <input name="image5" type="file" value="{{ $product->image5 }}" class="form-control">
+                            @error('image5')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label>Category</label>
                             <select name="category_id" id="">
                                 @foreach($category as $categories)

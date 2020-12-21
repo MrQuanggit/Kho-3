@@ -68,5 +68,20 @@ class ProductService implements ServiceInterface {
             $path = $img->store('public/products');
             $obj->image2 = $path;
         }
+        if ($request->hasFile('image3')) {
+            $img = $request->image3;
+            $path = $img->store('public/products');
+            $obj->image3 = $path;
+        }
+        if ($request->hasFile('image4')) {
+            $img = $request->image4;
+            $path = $img->store('public/products');
+            $obj->image4 = $path;
+        }
+        if ($request->hasFile('image5')) {
+            $img = $request->image5;
+            $path = $img->store('public/products');
+            $obj->image5 = $path;
+        }
     }
 }
