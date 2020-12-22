@@ -177,7 +177,7 @@ $.fn.dataTableExt.oApi.fnColReorder = function ( oSettings, iFrom, iTo, drop, in
 
 
 	/*
-	 * Convert all internal indexing to the new column order indexes
+	 * Convert all internal indexing to the new column customer indexes
 	 */
 	/* Sorting */
 	for ( i=0, iLen=oSettings.aaSorting.length ; i<iLen ; i++ )
@@ -553,7 +553,7 @@ $.extend( ColReorder.prototype, {
 	},
 
 	/**
-	 * `Deprecated` - Get the current order of the columns, as an array.
+	 * `Deprecated` - Get the current customer of the columns, as an array.
 	 *  @return {array} Array of column identifiers
 	 *  @deprecated `fnOrder` should be used in preference to this method.
 	 *      `fnOrder` acts as a getter/setter.
@@ -564,7 +564,7 @@ $.extend( ColReorder.prototype, {
 	},
 
 	/**
-	 * Get the current order of the columns, as an array. Note that the values
+	 * Get the current customer of the columns, as an array. Note that the values
 	 * given in the array are unique identifiers for each column. Currently
 	 * these are the original ordering of the columns that was detected on
 	 * start up, but this could potentially change in future.
@@ -572,13 +572,13 @@ $.extend( ColReorder.prototype, {
 	 *
 	 *  @example
 	 *    // Get column ordering for the table
-	 *    var order = $.fn.dataTable.ColReorder( dataTable ).fnOrder();
+	 *    var customer = $.fn.dataTable.ColReorder( dataTable ).fnOrder();
 	 *//**
-	 * Set the order of the columns, from the positions identified in the
+	 * Set the customer of the columns, from the positions identified in the
 	 * ordering array given. Note that ColReorder takes a brute force approach
 	 * to reordering, so it is possible multiple reordering events will occur
-	 * before the final order is settled upon.
-	 *  @param {array} [set] Array of column identifiers in the new order. Note
+	 * before the final customer is settled upon.
+	 *  @param {array} [set] Array of column identifiers in the new customer. Note
 	 *    that every column must be included, uniquely, in this array.
 	 *  @return {this} Returns `this` for chaining.
 	 *
@@ -594,7 +594,7 @@ $.extend( ColReorder.prototype, {
 	 *    $.fn.dataTable.ColReorder( '#example' ).fnOrder( curr );
 	 *
 	 *  @example
-	 *    // Reverse the table's order
+	 *    // Reverse the table's customer
 	 *    $.fn.dataTable.ColReorder( '#example' ).fnOrder(
 	 *      $.fn.dataTable.ColReorder( '#example' ).fnOrder().reverse()
 	 *    );
@@ -612,9 +612,9 @@ $.extend( ColReorder.prototype, {
 			return a;
 		}
 
-		// The order given is based on the original indexes, rather than the
+		// The customer given is based on the original indexes, rather than the
 		// existing ones, so we need to translate from the original to current
-		// before then doing the order
+		// before then doing the customer
 		if ( original ) {
 			var order = this.fnOrder();
 
@@ -706,7 +706,7 @@ $.extend( ColReorder.prototype, {
 			this.s.reorderCallback = this.s.init.fnReorderCallback;
 		}
 
-		/* Add event handlers for the drag and drop, and also mark the original column order */
+		/* Add event handlers for the drag and drop, and also mark the original column customer */
 		for ( i = 0; i < iLen; i++ )
 		{
 			if ( i > this.s.fixed-1 && i < iLen - this.s.fixedRight )
@@ -714,7 +714,7 @@ $.extend( ColReorder.prototype, {
 				this._fnMouseListener( i, this.s.dt.aoColumns[i].nTh );
 			}
 
-			/* Mark the original column order for later reference */
+			/* Mark the original column customer for later reference */
 			this.s.dt.aoColumns[i]._ColReorder_iOrigCol = i;
 		}
 
@@ -723,21 +723,21 @@ $.extend( ColReorder.prototype, {
 			that._fnStateSave.call( that, oData );
 		}, "ColReorder_State" );
 
-		/* An initial column order has been specified */
+		/* An initial column customer has been specified */
 		var aiOrder = null;
 		if ( this.s.init.aiOrder )
 		{
 			aiOrder = this.s.init.aiOrder.slice();
 		}
 
-		/* State loading, overrides the column order given */
+		/* State loading, overrides the column customer given */
 		if ( this.s.dt.oLoadedState && typeof this.s.dt.oLoadedState.ColReorder != 'undefined' &&
 		  this.s.dt.oLoadedState.ColReorder.length == this.s.dt.aoColumns.length )
 		{
 			aiOrder = this.s.dt.oLoadedState.ColReorder;
 		}
 
-		/* If we have an order to apply - do so */
+		/* If we have an customer to apply - do so */
 		if ( aiOrder )
 		{
 			/* We might be called during or after the DataTables initialisation. If before, then we need
@@ -781,9 +781,9 @@ $.extend( ColReorder.prototype, {
 
 
 	/**
-	 * Set the column order from an array
+	 * Set the column customer from an array
 	 *  @method  _fnOrderColumns
-	 *  @param   array a An array of integers which dictate the column order that should be applied
+	 *  @param   array a An array of integers which dictate the column customer that should be applied
 	 *  @returns void
 	 *  @private
 	 */
@@ -1307,8 +1307,8 @@ $.extend( ColReorder.prototype, {
 ColReorder.defaults = {
 	/**
 	 * Predefined ordering for the columns that will be applied automatically
-	 * on initialisation. If not specified then the order that the columns are
-	 * found to be in the HTML is the order used.
+	 * on initialisation. If not specified then the customer that the columns are
+	 * found to be in the HTML is the customer used.
 	 *  @type array
 	 *  @default null
 	 *  @static
@@ -1444,7 +1444,7 @@ $.fn.dataTable.Api.register( 'colReorder.reset()', function () {
 	} );
 } );
 
-$.fn.dataTable.Api.register( 'colReorder.order()', function ( set, original ) {
+$.fn.dataTable.Api.register( 'colReorder.customer()', function ( set, original ) {
 	if ( set ) {
 		return this.iterator( 'table', function ( ctx ) {
 			ctx._colReorder.fnOrder( set, original );

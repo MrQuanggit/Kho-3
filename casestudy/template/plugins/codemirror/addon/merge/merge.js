@@ -837,7 +837,7 @@
     return out;
   }
 
-  // Tracks collapsed markers and line widgets, in order to be able to
+  // Tracks collapsed markers and line widgets, in customer to be able to
   // accurately align the content of two editors.
 
   var F_WIDGET = 1, F_WIDGET_BELOW = 2, F_MARKER = 4

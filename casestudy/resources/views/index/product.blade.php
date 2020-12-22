@@ -5,7 +5,7 @@
         </div>
         <div class="col-sm-6 col-md-5">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
+                <div class="carousel-inner" data-toggle="modal" data-target=".bs-example-modal-lg" style="cursor: pointer;">
                     <div class="carousel-item active">
                         <img class="d-block w-100"
                              src="
@@ -83,7 +83,7 @@
         <div class="item">
             <div class="product-grid5">
                 <div class="product-image5">
-                    <a href="#">
+                    <a href="{{route('index.product',$category->id)}}">
                         <img class="pic-1" src="@if($category->getProductImage() == '/storage/products/')
                             https://miro.medium.com/max/2834/0*f81bU2qWpP51WWWC.jpg
                             @else
@@ -96,7 +96,7 @@
                         @endif">
                     </a>
                     <ul class="social">
-                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                        <li><a href="{{route('index.product',$category->id)}}" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                         <li><a href="{{route('cart.addToCart',$category->id)}}" data-tip="Add to Cart"><i
                                     class="fa fa-shopping-cart"></i></a></li>
                     </ul>
@@ -110,128 +110,7 @@
             </div>
         </div>
         @endforeach
-{{--        <div class="item">--}}
-{{--            <div class="product-grid5">--}}
-{{--                <div class="product-image5">--}}
-{{--                    <a href="#">--}}
-{{--                        <img class="pic-1" src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/15_DW00100162.jpg">--}}
-{{--                        <img class="pic-2" src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/DW-DW00100162-1.jpg">--}}
-{{--                    </a>--}}
-{{--                    <ul class="social">--}}
-{{--                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>--}}
-{{--                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>--}}
-{{--                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>--}}
-{{--                    </ul>--}}
-{{--                    <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a>--}}
-{{--                </div>--}}
-{{--                <div class="product-content">--}}
-{{--                    <h3 class="title"><a href="#">Women's Shirt</a></h3>--}}
-{{--                    <div class="price">$10.00 - $12.00</div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="item">--}}
-{{--            <div class="product-grid5">--}}
-{{--                <div class="product-image5">--}}
-{{--                    <a href="#">--}}
-{{--                        <img class="pic-1" src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/15_DW00100162.jpg">--}}
-{{--                        <img class="pic-2" src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/DW-DW00100162-1.jpg">--}}
-{{--                    </a>--}}
-{{--                    <ul class="social">--}}
-{{--                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>--}}
-{{--                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>--}}
-{{--                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>--}}
-{{--                    </ul>--}}
-{{--                    <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a>--}}
-{{--                </div>--}}
-{{--                <div class="product-content">--}}
-{{--                    <h3 class="title"><a href="#">Women's Shirt</a></h3>--}}
-{{--                    <div class="price">$10.00 - $12.00</div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="item">--}}
-{{--            <div class="product-grid5">--}}
-{{--                <div class="product-image5">--}}
-{{--                    <a href="#">--}}
-{{--                        <img class="pic-1" src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/15_DW00100162.jpg">--}}
-{{--                        <img class="pic-2" src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/DW-DW00100162-1.jpg">--}}
-{{--                    </a>--}}
-{{--                    <ul class="social">--}}
-{{--                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>--}}
-{{--                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>--}}
-{{--                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>--}}
-{{--                    </ul>--}}
-{{--                    <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a>--}}
-{{--                </div>--}}
-{{--                <div class="product-content">--}}
-{{--                    <h3 class="title"><a href="#">Women's Shirt</a></h3>--}}
-{{--                    <div class="price">$10.00 - $12.00</div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="item">--}}
-{{--            <div class="product-grid5">--}}
-{{--                <div class="product-image5">--}}
-{{--                    <a href="#">--}}
-{{--                        <img class="pic-1" src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/15_DW00100162.jpg">--}}
-{{--                        <img class="pic-2" src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/DW-DW00100162-1.jpg">--}}
-{{--                    </a>--}}
-{{--                    <ul class="social">--}}
-{{--                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>--}}
-{{--                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>--}}
-{{--                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>--}}
-{{--                    </ul>--}}
-{{--                    <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a>--}}
-{{--                </div>--}}
-{{--                <div class="product-content">--}}
-{{--                    <h3 class="title"><a href="#">Women's Shirt</a></h3>--}}
-{{--                    <div class="price">$10.00 - $12.00</div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="item">--}}
-{{--            <div class="product-grid5">--}}
-{{--                <div class="product-image5">--}}
-{{--                    <a href="#">--}}
-{{--                        <img class="pic-1" src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/15_DW00100162.jpg">--}}
-{{--                        <img class="pic-2" src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/DW-DW00100162-1.jpg">--}}
-{{--                    </a>--}}
-{{--                    <ul class="social">--}}
-{{--                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>--}}
-{{--                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>--}}
-{{--                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>--}}
-{{--                    </ul>--}}
-{{--                    <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a>--}}
-{{--                </div>--}}
-{{--                <div class="product-content">--}}
-{{--                    <h3 class="title"><a href="#">Women's Shirt</a></h3>--}}
-{{--                    <div class="price">$10.00 - $12.00</div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="item">--}}
-{{--            <div class="product-grid5">--}}
-{{--                <div class="product-image5">--}}
-{{--                    <a href="#">--}}
-{{--                        <img class="pic-1" src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/15_DW00100162.jpg">--}}
-{{--                        <img class="pic-2" src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/DW-DW00100162-1.jpg">--}}
-{{--                    </a>--}}
-{{--                    <ul class="social">--}}
-{{--                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>--}}
-{{--                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>--}}
-{{--                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>--}}
-{{--                    </ul>--}}
-{{--                    <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a>--}}
-{{--                </div>--}}
-{{--                <div class="product-content">--}}
-{{--                    <h3 class="title"><a href="#">Women's Shirt</a></h3>--}}
-{{--                    <div class="price">$10.00 - $12.00</div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
     </div>
-
     {{--    image him her--}}
     <div class="row">
         <div class="col-md-6 col-sm-6">
@@ -254,6 +133,39 @@
                     <h3>Girt For Her</h3>
                     <a href="" class="btn btn-light">Go got it</a>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{--Carousel Modal--}}
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img class="img-responsive modal-image" src="{{$product->getProductImage()}}" alt="...">
+                    </div>
+                    <div class="item">
+                        <img class="img-responsive modal-image" src="{{$product->getProductImage2()}}" alt="...">
+                    </div>
+                    <div class="item">
+                        <img class="img-responsive modal-image" src="{{$product->getProductImage3()}}" alt="...">
+                    </div>
+                    <div class="item">
+                        <img class="img-responsive modal-image" src="{{$product->getProductImage4()}}" alt="...">
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
             </div>
         </div>
     </div>

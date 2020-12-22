@@ -29,7 +29,7 @@ An array can be passed for multiple thresholding, like this:
         color: color2
     }]
 
-These multiple threshold objects can be passed in any order since they are
+These multiple threshold objects can be passed in any customer since they are
 sorted by the processing function.
 
 The data points below "below" are drawn with the specified color. This makes

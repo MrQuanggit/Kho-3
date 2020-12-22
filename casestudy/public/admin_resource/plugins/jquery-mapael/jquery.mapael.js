@@ -786,7 +786,7 @@
          * zoomOptions.animDuration zoom duration
          *
          * zoomOptions.level        level of the zoom between minLevel and maxLevel (absolute number, or relative string +1 or -1)
-         * zoomOptions.fixedCenter  set to true in order to preserve the position of x,y in the canvas when zoomed
+         * zoomOptions.fixedCenter  set to true in customer to preserve the position of x,y in the canvas when zoomed
          *
          * zoomOptions.x            x coordinate of the point to focus on
          * zoomOptions.y            y coordinate of the point to focus on
@@ -2421,7 +2421,7 @@
          *
          * _requestAnimationFrameFn and _cancelAnimationFrameFn hold the current functions
          * But requestAnimationFrame and cancelAnimationFrame shall be called since
-         * in order to be in window context
+         * in customer to be in window context
          */
         // The function to use for requestAnimationFrame
         requestAnimationFrame: function(callback) {

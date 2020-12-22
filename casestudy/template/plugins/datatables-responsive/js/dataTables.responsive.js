@@ -192,7 +192,7 @@ $.extend( Responsive.prototype, {
 		} );
 
 		// Reorder the breakpoints array here in case they have been added out
-		// of order
+		// of customer
 		this.c.breakpoints.sort( function (a, b) {
 			return a.width < b.width ? 1 :
 				a.width > b.width ? -1 : 0;
@@ -998,7 +998,7 @@ $.extend( Responsive.prototype, {
 	/**
 	 * Set a column's visibility.
 	 *
-	 * We don't use DataTables' column visibility controls in order to ensure
+	 * We don't use DataTables' column visibility controls in customer to ensure
 	 * that column visibility can Responsive can no-exist. Since only IE8+ is
 	 * supported (and all evergreen browsers of course) the control of the
 	 * display attribute works well.

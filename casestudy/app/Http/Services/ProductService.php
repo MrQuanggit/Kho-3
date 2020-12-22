@@ -29,17 +29,17 @@ class ProductService implements ServiceInterface {
     function add($request, $obj = null)
     {
         // TODO: Implement add() method.
-        $obj = new Product();
-        $obj->id = $request->id;
-        $obj->product_name = $request->product_name;
-        $obj->description = $request->description;
-        $obj->stock = $request->stock;
-        $obj->view = $request->view;
-        $obj->priceEach = $request->priceEach;
-        $obj->slug = $request->slug;
-        $obj->size = $request->size;
+        $obj                = new Product();
+        $obj->id            = $request->id;
+        $obj->product_name  = $request->product_name;
+        $obj->description   = $request->description;
+        $obj->stock         = $request->stock;
+        $obj->view          = $request->view;
+        $obj->priceEach     = $request->priceEach;
+        $obj->slug          = $request->slug;
+        $obj->size          = $request->size;
         $this->uploadFile($obj, $request);
-        $obj->category_id = $request->category_id;
+        $obj->category_id   = $request->category_id;
         $this->productRepository->save($obj);
     }
 
@@ -59,29 +59,34 @@ class ProductService implements ServiceInterface {
     function uploadFile($obj, $request)
     {
         if ($request->hasFile('image1')) {
-            $img = $request->image1;
+            $img  = $request->image1;
             $path = $img->store('public/products');
             $obj->image1 = $path;
         }
         if ($request->hasFile('image2')) {
-            $img = $request->image2;
+            $img  = $request->image2;
             $path = $img->store('public/products');
             $obj->image2 = $path;
         }
         if ($request->hasFile('image3')) {
-            $img = $request->image3;
+            $img  = $request->image3;
             $path = $img->store('public/products');
             $obj->image3 = $path;
         }
         if ($request->hasFile('image4')) {
-            $img = $request->image4;
+            $img  = $request->image4;
             $path = $img->store('public/products');
             $obj->image4 = $path;
         }
         if ($request->hasFile('image5')) {
-            $img = $request->image5;
+            $img  = $request->image5;
             $path = $img->store('public/products');
             $obj->image5 = $path;
         }
+    }
+
+    public function increseView($obj){
+        $obj->view++;
+        $this->productRepository->save($obj);
     }
 }

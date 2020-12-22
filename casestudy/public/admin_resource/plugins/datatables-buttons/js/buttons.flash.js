@@ -367,7 +367,7 @@ ZeroClipboard_TableTools.Client.prototype = {
 					return;
 				}
 
-				// firefox on pc needs a "kick" in order to set these in certain cases
+				// firefox on pc needs a "kick" in customer to set these in certain cases
 				if (!this.ready && navigator.userAgent.match(/Firefox/) && navigator.userAgent.match(/Windows/)) {
 					self = this;
 					setTimeout( function() { self.receiveEvent('load', null); }, 100 );
@@ -1398,7 +1398,7 @@ DataTable.ext.buttons.excelFlash = $.extend( {}, flashButton, {
 	},
 
 	extension: '.xlsx',
-	
+
 	createEmptyCells: false
 } );
 

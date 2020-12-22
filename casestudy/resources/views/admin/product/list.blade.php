@@ -23,6 +23,7 @@
                                     <th>Name</th>
                                     <th>Image</th>
                                     <th>Stock</th>
+                                    <th>View</th>
                                     <th>Price</th>
                                     <th>Category</th>
                                     <th>Option</th>
@@ -41,6 +42,7 @@
                                                  @endif"
                                                  class="img-border-radius avatar-40 img-fluid"></td>
                                         <td>{{$product->stock}}</td>
+                                        <td>{{$product->view}}</td>
                                         <td>{{$product->priceEach}}</td>
                                         <td>{{$product->category->name}}</td>
                                         <td><a href="{{route('product.edit', $product->id)}}" style="padding: 5px"
@@ -61,6 +63,7 @@
                                     <th>Name</th>
                                     <th>Image</th>
                                     <th>Stock</th>
+                                    <th>View</th>
                                     <th>Price</th>
                                     <th>Category</th>
                                     <th>Option</th>

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Cart;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -28,7 +31,7 @@ class CartController extends Controller
 
     public function showCart(){
         $cart = session('cart');
-        return view('admin.cart.cart',compact('cart'));
+        return view('index.cart.cart',compact('cart'));
     }
 
     public function deleteCart() {
@@ -37,8 +40,8 @@ class CartController extends Controller
         return redirect()->route('cart.showCart')->with('success',$message);
     }
 
-    public function deleteProduct($idProduct) {
-        $product = Product::findOrFail($idProduct);
+    public function deleteProduct($id) {
+        $product = Product::findOrFail($id);
         $oldCart = session('cart');
         $cart = new Cart($oldCart);
         $cart->remove($product);
@@ -46,4 +49,38 @@ class CartController extends Controller
         $message = "Delete Product Complete !";
         return back()->with('success',$message);
     }
+
+    public function checkout(Request $request){
+
+        $customer = new Customer();
+        $customer->customer_name = $request->input('customer_name');
+        $customer->customer_address = $request->input('customer_address');
+        $customer->customer_phone = $request->input('customer_phone');
+        $customer->customer_email = $request->input('customer_email');
+        $customer->save();
+
+        $order = new Order();
+        $order->customer_id = $customer->id;
+        $order->order_comment = $request->input('order_comment');
+        $order->save();
+        $orders_id = $order->id;
+
+        $oldCart = session('cart') ? session('cart'): null;
+        $cart = new Cart($oldCart);
+        foreach($cart->items as $item) {
+            $product_id = $item['product']->id;
+            $quantity = $item['totalQty'];
+            $priceEach = $item['product']->priceEach;
+            DB::table('order_detail')->insert([
+               'orders_id' => $orders_id,
+                'product_id'=>$product_id,
+                'quantity' => $quantity,
+                'priceEach' => $priceEach
+            ]);
+        }
+        session()->forget('cart');
+
+        return redirect()->route('cart.showCart');
+    }
+
 }

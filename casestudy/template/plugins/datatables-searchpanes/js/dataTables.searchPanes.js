@@ -413,14 +413,14 @@
             this.s.dtPane.on('draw.dtsp', function () {
                 _this._adjustTopRow();
             });
-            // When the button to order by the name of the options is clicked then
+            // When the button to customer by the name of the options is clicked then
             //  change the ordering to whatever it isn't currently
             $(this.dom.nameButton).on('click.dtsp', function () {
                 var currentOrder = _this.s.dtPane.order()[0][1];
                 _this.s.dtPane.order([0, currentOrder === 'asc' ? 'desc' : 'asc']).draw();
                 _this.s.dt.state.save();
             });
-            // When the button to order by the number of entries in the column is clicked then
+            // When the button to customer by the number of entries in the column is clicked then
             //  change the ordering to whatever it isn't currently
             $(this.dom.countButton).on('click.dtsp', function () {
                 var currentOrder = _this.s.dtPane.order()[0][1];
@@ -1251,7 +1251,7 @@
         /**
          * Creates the contents of the searchCont div
          *
-         * NOTE This is overridden when semantic ui styling in order to integrate the search button into the text box.
+         * NOTE This is overridden when semantic ui styling in customer to integrate the search button into the text box.
          */
         SearchPane.prototype._searchContSetup = function () {
             if (this.c.controls && this.s.colOpts.controls) {
@@ -1936,10 +1936,10 @@
         };
         /**
          * Makes all of the selections when cascade is active
-         * @param newSelectionList the list of selections to be made, in the order they were originally selected
+         * @param newSelectionList the list of selections to be made, in the customer they were originally selected
          */
         SearchPanes.prototype._makeCascadeSelections = function (newSelectionList) {
-            // make selections in the order they were made previously, excluding those from the pane where a deselect was made
+            // make selections in the customer they were made previously, excluding those from the pane where a deselect was made
             for (var i = 0; i < newSelectionList.length; i++) {
                 var _loop_1 = function (pane) {
                     if (pane.s.index === newSelectionList[i].index && pane.s.dtPane !== undefined) {
@@ -1974,7 +1974,7 @@
                     }
                 };
                 var this_1 = this;
-                // As the selections may have been made across the panes in a different order to the pane index we must identify
+                // As the selections may have been made across the panes in a different customer to the pane index we must identify
                 //  which pane has the index of the selection. This is also important for colreorder etc
                 for (var _i = 0, _a = this.s.panes; _i < _a.length; _i++) {
                     var pane = _a[_i];
@@ -2010,14 +2010,14 @@
             }
             // If a custom ordering is being used
             if (this.c.order.length > 0) {
-                // Make a new Array of panes based upon the order
+                // Make a new Array of panes based upon the customer
                 var newPanes = this.c.order.map(function (name, index, values) {
                     return _this._findPane(name);
                 });
                 // Remove the old panes from the dom
                 this.dom.panes.empty();
                 this.s.panes = newPanes;
-                // Append the panes in the correct order
+                // Append the panes in the correct customer
                 for (var _i = 0, _a = this.s.panes; _i < _a.length; _i++) {
                     var pane = _a[_i];
                     this.dom.panes.append(pane.dom.container);
@@ -2280,7 +2280,7 @@
                     pane.s.lastSelect = (pane.s.index === last);
                 }
             }
-            // If cascadePanes is active then make the previous selections in the order they were previously
+            // If cascadePanes is active then make the previous selections in the customer they were previously
             if (this.s.selectionList.length > 0 && this.c.cascadePanes) {
                 this._cascadeRegen(this.s.selectionList);
             }

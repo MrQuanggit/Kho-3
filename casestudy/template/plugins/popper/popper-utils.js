@@ -918,7 +918,7 @@ function removeEventListeners(reference, state) {
 }
 
 /**
- * Loop trough the list of modifiers and run them in order,
+ * Loop trough the list of modifiers and run them in customer,
  * each of them will then edit the data object.
  * @method
  * @memberof Popper.Utils

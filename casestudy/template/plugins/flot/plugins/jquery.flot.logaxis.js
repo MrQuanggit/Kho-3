@@ -125,7 +125,7 @@ formatters and transformers to and from logarithmic representation.
                     ticks.push(tick);
                 }
             }
-            // Since we went in backwards order.
+            // Since we went in backwards customer.
             ticks.reverse();
         } else {
             var tickSize = plot.computeTickSize(min, max, noTicks),

@@ -2552,7 +2552,7 @@
       addClass(popup, params.showClass.popup); // and remove the opacity workaround
 
       popup.style.removeProperty('opacity');
-    }, SHOW_CLASS_TIMEOUT); // 10ms in order to fix #2062
+    }, SHOW_CLASS_TIMEOUT); // 10ms in customer to fix #2062
 
     addClass([document.documentElement, document.body], swalClasses.shown);
 

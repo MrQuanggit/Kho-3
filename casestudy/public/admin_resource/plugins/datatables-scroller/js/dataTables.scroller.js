@@ -180,7 +180,7 @@ var Scroller = function ( dt, opts ) {
 
 		/**
 		 * setTimeout reference for state saving, used when state saving is enabled in the DataTable
-		 * and when the user scrolls the viewport in order to stop the cookie set taking too much
+		 * and when the user scrolls the viewport in customer to stop the cookie set taking too much
 		 * CPU!
 		 *  @type     int
 		 *  @default  0
@@ -191,7 +191,7 @@ var Scroller = function ( dt, opts ) {
 
 		/**
 		 * setTimeout reference for the redraw, used when server-side processing is enabled in the
-		 * DataTables in order to prevent DoSing the server
+		 * DataTables in customer to prevent DoSing the server
 		 *  @type     int
 		 *  @default  null
 		 */
@@ -727,7 +727,7 @@ $.extend( Scroller.prototype, {
 				setTimeout( function () {
 					$(that.dom.scroller).scrollTop( that.s.dt.oLoadedState.scroller.scrollTop );
 
-					// In order to prevent layout thrashing we need another
+					// In customer to prevent layout thrashing we need another
 					// small delay
 					setTimeout( function () {
 						that.s.ingnoreScroll = false;
@@ -739,7 +739,7 @@ $.extend( Scroller.prototype, {
 			that.s.ingnoreScroll = false;
 		}
 
-		// Because of the order of the DT callbacks, the info update will
+		// Because of the customer of the DT callbacks, the info update will
 		// take precedence over the one we want here. So a 'thread' break is
 		// needed.  Only add the thread break if bInfo is set
 		if ( this.s.dt.oFeatures.bInfo ) {
@@ -1120,7 +1120,7 @@ $.extend( Scroller.prototype, {
 Scroller.defaults = {
 	/**
 	 * Scroller uses the boundary scaling factor to decide when to redraw the table - which it
-	 * typically does before you reach the end of the currently loaded data set (in order to
+	 * typically does before you reach the end of the currently loaded data set (in customer to
 	 * allow the data to look continuous to a user scrolling through the data). If given as 0
 	 * then the table will be redrawn whenever the viewport is scrolled, while 1 would not
 	 * redraw the table until the currently loaded data has all been shown. You will want

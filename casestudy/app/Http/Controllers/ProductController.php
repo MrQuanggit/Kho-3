@@ -44,15 +44,15 @@ class ProductController extends Controller
 
     public function edit($id) {
         $category = Category::all();
-        $product = $this->productService->findById($id);
+        $product  = $this->productService->findById($id);
         return view('admin.product.edit', compact('product', 'category'));
     }
 
     public function update(Request $request, $id) {
         $category = Category::all();
-        $product = $this->productService->findById($id);
+        $product  = $this->productService->findById($id);
         $this->productService->update($request, $product);
-        $message = 'Successfully Update Product!';
+        $message  = 'Successfully Update Product!';
         return redirect()->route('product.index', compact('category'))->with('info',$message);
     }
 
@@ -60,10 +60,27 @@ class ProductController extends Controller
         $products = Product::where('category_id', '1')->get();
         return view('index.category.men', compact('products'));
     }
+    public function women(){
+        $products = Product::where('category_id', '2')->get();
+        return view('index.category.women', compact('products'));
+    }
+    public function jewelry(){
+        $products = Product::where('category_id', '3')->get();
+        return view('index.category.jewelry', compact('products'));
+    }
 
     public function product($id){
-        $product = $this->productService->findById($id);
+        $product    = $this->productService->findById($id);
+        $this->productService->increseView($product);
         $categories = Product::where('category_id', $product->category_id)->get();
         return view('index.product', compact('product', 'categories'));
+    }
+
+    public function home(){
+        $favorites  = Product::orderBy('view', 'desc')
+            ->limit(4)->get();
+        $hotSales   = Product::orderBy('stock', 'desc')
+            ->limit(5)->get();
+        return view('index.index', compact('hotSales', 'favorites'));
     }
 }

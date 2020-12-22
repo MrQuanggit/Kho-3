@@ -25,7 +25,7 @@ You can also specify it for a single series, like this:
         stack: true
     }])
 
-The stacking order is determined by the order of the data series in the array
+The stacking customer is determined by the customer of the data series in the array
 (later series end up on top of the previous).
 
 Internally, the plugin modifies the datapoints in each series, adding an

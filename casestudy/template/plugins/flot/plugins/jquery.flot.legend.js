@@ -312,7 +312,7 @@
             '</symbol>' +
         '</defs>';
 
-    // Generate a list of legend entries in their final order
+    // Generate a list of legend entries in their final customer
     function getLegendEntries(series, labelFormatter, sorted) {
         var lf = labelFormatter,
             legendEntries = series.reduce(function(validEntries, s, i) {

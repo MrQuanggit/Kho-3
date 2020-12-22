@@ -65,7 +65,7 @@ var DataTable = $.fn.dataTable;
  * * `rowReorder` parameter in the DataTable initialisation object
  * * `new $.fn.dataTable.RowReorder( table, opts )` after DataTables
  *   initialisation.
- * 
+ *
  *  @class
  *  @param {object} settings DataTables settings object for the host table
  *  @param {object} [opts] Configuration options
@@ -215,7 +215,7 @@ $.extend( RowReorder.prototype, {
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	 * Private methods
 	 */
-	
+
 	/**
 	 * Cache the measurements that RowReorder needs in the mouse move handler
 	 * to attempt to speed things up, rather than reading from the DOM.
@@ -231,9 +231,9 @@ $.extend( RowReorder.prototype, {
 		// for that
 		var headerHeight = $( dt.table().node() ).find('thead').outerHeight();
 
-		// Need to pass the nodes through jQuery to get them in document order,
+		// Need to pass the nodes through jQuery to get them in document customer,
 		// not what DataTables thinks it is, since we have been altering the
-		// order
+		// customer
 		var nodes = $.unique( dt.rows( { page: 'current' } ).nodes().toArray() );
 		var middles = $.map( nodes, function ( node, i ) {
 			var top = $(node).position().top - headerHeight;
@@ -520,7 +520,7 @@ $.extend( RowReorder.prototype, {
 				diffNodes.push( endNodes[i] );
 			}
 		}
-		
+
 		// Create event args
 		var eventArgs = [ fullDiff, {
 			dataSrc:       dataSrc,
@@ -529,7 +529,7 @@ $.extend( RowReorder.prototype, {
 			triggerRow:    dt.row( this.dom.target ),
 			originalEvent: e
 		} ];
-		
+
 		// Emit event
 		this._emitEvent( 'row-reorder', eventArgs );
 
@@ -663,7 +663,7 @@ $.extend( RowReorder.prototype, {
 
 					if ( top !== $(document).scrollTop() ) {
 						var move = parseFloat(that.dom.clone.css("top"));
-						that.dom.clone.css("top", move + scroll.windowVert);					
+						that.dom.clone.css("top", move + scroll.windowVert);
 					}
 				}
 
@@ -712,7 +712,7 @@ RowReorder.defaults = {
 	enable: true,
 
 	/**
-	 * Form options to pass to Editor when submitting a change in the row order.
+	 * Form options to pass to Editor when submitting a change in the row customer.
 	 * See the Editor `from-options` object for details of the options
 	 * available.
 	 * @type {Object}

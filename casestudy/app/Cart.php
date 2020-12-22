@@ -28,10 +28,10 @@ class Cart
             $storeItem = $this->items[$product->id];
         }
         $storeItem['totalQty']++;
-        $storeItem['totalPrice']+=$product->price;
+        $storeItem['totalPrice']+=$product->priceEach;
         $this->items[$product->id] = $storeItem;
         $this->totalQty++;
-        $this->totalPrice+=$product->price;
+        $this->totalPrice+=$product->priceEach;
     }
 
     function minus($product){
@@ -44,10 +44,10 @@ class Cart
             $storeItem = $this->items[$product->id];
         }
         $storeItem['totalQty']--;
-        $storeItem['totalPrice']-=$product->price;
+        $storeItem['totalPrice']-=$product->priceEach;
         $this->items[$product->id] = $storeItem;
-        $this->totalQty++;
-        $this->totalPrice-=$product->price;
+        $this->totalQty--;
+        $this->totalPrice-=$product->priceEach;
     }
 
     function remove($product){

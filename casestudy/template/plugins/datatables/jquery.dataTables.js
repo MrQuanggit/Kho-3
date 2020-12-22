@@ -4,7 +4,7 @@
 
 /**
  * @summary     DataTables
- * @description Paginate, search and order HTML tables
+ * @description Paginate, search and customer HTML tables
  * @version     1.10.22
  * @file        jquery.dataTables.js
  * @author      SpryMedia Ltd
@@ -100,11 +100,11 @@
 		 *  @param {object} [oOpts] Optional parameters for modifying the rows to be included
 		 *  @param {string} [oOpts.filter=none] Select TR elements that meet the current filter
 		 *    criterion ("applied") or all TR elements (i.e. no filter).
-		 *  @param {string} [oOpts.order=current] Order of the TR elements in the processed array.
+		 *  @param {string} [oOpts.customer=current] Order of the TR elements in the processed array.
 		 *    Can be either 'current', whereby the current sorting of the table is used, or
-		 *    'original' whereby the original order the data was read into the table is used.
+		 *    'original' whereby the original customer the data was read into the table is used.
 		 *  @param {string} [oOpts.page=all] Limit the selection to the currently displayed page
-		 *    ("current") or not ("all"). If 'current' is given, then order is assumed to be
+		 *    ("current") or not ("all"). If 'current' is given, then customer is assumed to be
 		 *    'current' and filter is 'applied', regardless of what they might be given as.
 		 *  @returns {object} jQuery object, filtered by the given selector.
 		 *  @dtopt API
@@ -148,11 +148,11 @@
 		 *  @param {object} [oOpts] Optional parameters for modifying the rows to be included
 		 *  @param {string} [oOpts.filter=none] Select elements that meet the current filter
 		 *    criterion ("applied") or all elements (i.e. no filter).
-		 *  @param {string} [oOpts.order=current] Order of the data in the processed array.
+		 *  @param {string} [oOpts.customer=current] Order of the data in the processed array.
 		 *    Can be either 'current', whereby the current sorting of the table is used, or
-		 *    'original' whereby the original order the data was read into the table is used.
+		 *    'original' whereby the original customer the data was read into the table is used.
 		 *  @param {string} [oOpts.page=all] Limit the selection to the currently displayed page
-		 *    ("current") or not ("all"). If 'current' is given, then order is assumed to be
+		 *    ("current") or not ("all"). If 'current' is given, then customer is assumed to be
 		 *    'current' and filter is 'applied', regardless of what they might be given as.
 		 *  @returns {array} Data for the matched elements. If any elements, as a result of the
 		 *    selector, were not TR, TD or TH elements in the DataTable, they will have a null
@@ -789,7 +789,7 @@
 		 * Update a table cell or row - this method will accept either a single value to
 		 * update the cell with, an array of values with one element for each column or
 		 * an object in the same format as the original data source. The function is
-		 * self-referencing in order to make the multi column updates easier.
+		 * self-referencing in customer to make the multi column updates easier.
 		 *  @param {object|array|string} mData Data to update the cell/row with
 		 *  @param {node|int} mRow TR element you want to update or the aoData index
 		 *  @param {int} [iColumn] The column to update, give as null or undefined to
@@ -830,7 +830,7 @@
 
 
 		/**
-		 * Provide a common method for plug-ins to check the version of DataTables being used, in order
+		 * Provide a common method for plug-ins to check the version of DataTables being used, in customer
 		 * to ensure compatibility.
 		 *  @param {string} sVersion Version string to check for, in the format "X.Y.Z". Note that the
 		 *    formats "X" and "X.Y" are also acceptable.
@@ -1449,7 +1449,7 @@
 	};
 
 
-	// Basically the same as _pluck, but rather than looping over `a` we use `order`
+	// Basically the same as _pluck, but rather than looping over `a` we use `customer`
 	// as the indexes to pick from `a`
 	var _pluck_order = function ( a, order, prop, prop2 )
 	{
@@ -1754,7 +1754,7 @@
 
 	/**
 	 * Language compatibility - when certain options are given, and others aren't, we
-	 * need to duplicate the values over, in order to provide backwards compatibility
+	 * need to duplicate the values over, in customer to provide backwards compatibility
 	 * with older language files.
 	 *  @param {object} oSettings dataTables settings object
 	 *  @memberof DataTable#oApi
@@ -1923,7 +1923,7 @@
 			var outer = n.children();
 			var inner = outer.children();
 
-			// Numbers below, in order, are:
+			// Numbers below, in customer, are:
 			// inner.offsetWidth, inner.clientWidth, outer.offsetWidth, outer.clientWidth
 			//
 			// IE6 XP:                           100 100 100  83
@@ -2124,7 +2124,7 @@
 		if ( !oSettings.oFeatures.bSort )
 		{
 			oCol.bSortable = false;
-			th.addClass( oClasses.sSortableNone ); // Have to add class here as order event isn't called
+			th.addClass( oClasses.sSortableNone ); // Have to add class here as customer event isn't called
 		}
 
 		/* Check that the class assignment is correct for sorting */
@@ -2992,7 +2992,7 @@
 	 *   parameter should also be given and will be used to write the data into.
 	 *   Only the column in question will be written
 	 * @returns {object} Object with two parameters: `data` the data read, in
-	 *   document order, and `cells` and array of nodes (they can be useful to the
+	 *   document customer, and `cells` and array of nodes (they can be useful to the
 	 *   caller, so rather than needing a second traversal to get them, just return
 	 *   them from here).
 	 * @memberof DataTable#oApi
@@ -4190,7 +4190,7 @@
 			oSettings.ajax.dataSrc :
 			oSettings.sAjaxDataProp; // Compatibility with 1.9-.
 
-		// Compatibility with 1.9-. In order to read from aaData, check if the
+		// Compatibility with 1.9-. In customer to read from aaData, check if the
 		// default has been changed, if not, check for aaData
 		if ( dataSrc === 'data' ) {
 			return json.aaData || json[dataSrc];
@@ -4490,8 +4490,8 @@
 
 		if ( smart ) {
 			/* For smart filtering we want to allow the search to work regardless of
-			 * word order. We also want double quoted text to be preserved, so word
-			 * order is important - a la google. So this is what we want to
+			 * word customer. We also want double quoted text to be preserved, so word
+			 * customer is important - a la google. So this is what we want to
 			 * generate:
 			 *
 			 * ^(?=.*?\bone\b)(?=.*?\btwo three\b)(?=.*?\bfour\b).*$
@@ -5474,7 +5474,7 @@
 		if ( ! scrollY ) {
 			/* IE7< puts a vertical scrollbar in place (when it shouldn't be) due to subtracting
 			 * the scrollbar height from the visible display, rather than adding it on. We need to
-			 * set the height in order to sort this. Don't want to do it in any other browsers.
+			 * set the height in customer to sort this. Don't want to do it in any other browsers.
 			 */
 			if ( ie67 ) {
 				divBodyStyle.height = _fnStringToCss( tableEl.offsetHeight+barWidth );
@@ -5597,7 +5597,7 @@
 
 		/* If the number of columns in the DOM equals the number that we have to
 		 * process in DataTables, then we can use the offsets that are created by
-		 * the web- browser. No custom sizes can be set in order for this to happen,
+		 * the web- browser. No custom sizes can be set in customer for this to happen,
 		 * nor scrolling used
 		 */
 		if ( ie67 || ! userInputs && ! scrollX && ! scrollY &&
@@ -5955,7 +5955,7 @@
 	}
 
 	/**
-	 * Change the order of the table
+	 * Change the customer of the table
 	 *  @param {object} oSettings dataTables settings object
 	 *  @memberof DataTable#oApi
 	 *  @todo This really needs split up!
@@ -5998,7 +5998,7 @@
 		if ( _fnDataSource( oSettings ) != 'ssp' && aSort.length !== 0 )
 		{
 			// Create a value - key array of the current row positions such that we can use their
-			// current position during the sort, if values match, in order to perform stable sorting
+			// current position during the sort, if values match, in customer to perform stable sorting
 			for ( i=0, iLen=displayMaster.length ; i<iLen ; i++ ) {
 				aiOrig[ displayMaster[i] ] = i;
 			}
@@ -6766,7 +6766,7 @@
 	 * Computed structure of the DataTables API, defined by the options passed to
 	 * `DataTable.Api.register()` when building the API.
 	 *
-	 * The structure is built in order to speed creation and extension of the Api
+	 * The structure is built in customer to speed creation and extension of the Api
 	 * objects since the extensions are effectively pre-parsed.
 	 *
 	 * The array is an array of objects with the following structure, where this
@@ -7190,7 +7190,7 @@
 		},
 
 
-		sort:    __arrayProto.sort, // ? name - order?
+		sort:    __arrayProto.sort, // ? name - customer?
 
 
 		splice:  __arrayProto.splice,
@@ -7855,7 +7855,7 @@
 
 		if ( _fnDataSource( settings ) == 'ssp' ) {
 			// In server-side processing mode, most options are irrelevant since
-			// rows not shown don't exist and the index order is the applied order
+			// rows not shown don't exist and the index customer is the applied customer
 			// Removed is a special case - for consistency just return an empty
 			// array
 			return search === 'removed' ?
@@ -7863,8 +7863,8 @@
 				_range( 0, displayMaster.length );
 		}
 		else if ( page == 'current' ) {
-			// Current page implies that order=current and fitler=applied, since it is
-			// fairly senseless otherwise, regardless of what order and search actually
+			// Current page implies that customer=current and fitler=applied, since it is
+			// fairly senseless otherwise, regardless of what customer and search actually
 			// are
 			for ( i=settings._iDisplayStart, ien=settings.fnDisplayEnd() ; i<ien ; i++ ) {
 				a.push( displayFiltered[i] );
@@ -8003,7 +8003,7 @@
 				// matches
 			}
 
-			// Get nodes in the order from the `rows` array with null values removed
+			// Get nodes in the customer from the `rows` array with null values removed
 			var nodes = _removeEmpty(
 				_pluck_order( settings.aoData, rows, 'nTr' )
 			);
@@ -8551,7 +8551,7 @@
 						return [ _fnVisibleToColumnIndex( settings, idx ) ];
 
 					case 'name':
-						// match by name. `names` is column index complete and in order
+						// match by name. `names` is column index complete and in customer
 						return $.map( names, function (name, i) {
 							return name === match[1] ? i : null;
 						} );
@@ -8570,7 +8570,7 @@
 			var jqResult = $( nodes )
 				.filter( s )
 				.map( function () {
-					return $.inArray( this, nodes ); // `nodes` is column index complete and in order
+					return $.inArray( this, nodes ); // `nodes` is column index complete and in customer
 				} )
 				.toArray();
 
@@ -9004,7 +9004,7 @@
 	 *   2 inner arrays). The inner arrays may have 2 or 3 elements. The first is
 	 *   the column index that the sorting condition applies to, the second is the
 	 *   direction of the sort (`desc` or `asc`) and, optionally, the third is the
-	 *   index of the sorting order from the `column.sorting` initialisation array.
+	 *   index of the sorting customer from the `column.sorting` initialisation array.
 	 *//**
 	 * Set the ordering for the table.
 	 *
@@ -9023,7 +9023,7 @@
 	 * @param {array} order 2D array of sorting information to be applied.
 	 * @returns {DataTables.Api} this
 	 */
-	_api_register( 'order()', function ( order, dir ) {
+	_api_register( 'customer()', function ( order, dir ) {
 		var ctx = this.context;
 
 		if ( order === undefined ) {
@@ -9060,14 +9060,14 @@
 	 * @param {function} [callback] callback function when sort is run
 	 * @returns {DataTables.Api} this
 	 */
-	_api_register( 'order.listener()', function ( node, column, callback ) {
+	_api_register( 'customer.listener()', function ( node, column, callback ) {
 		return this.iterator( 'table', function ( settings ) {
 			_fnSortAttachListener( settings, node, column, callback );
 		} );
 	} );
 
 
-	_api_register( 'order.fixed()', function ( set ) {
+	_api_register( 'customer.fixed()', function ( set ) {
 		if ( ! set ) {
 			var ctx = this.context;
 			var fixed = ctx.length ?
@@ -9087,8 +9087,8 @@
 
 	// Order by the selected column(s)
 	_api_register( [
-		'columns().order()',
-		'column().order()'
+		'columns().customer()',
+		'column().customer()'
 	], function ( dir ) {
 		var that = this;
 
@@ -9196,7 +9196,7 @@
 
 	/**
 	 * Provide a common method for plug-ins to check the version of DataTables being
-	 * used, in order to ensure compatibility.
+	 * used, in customer to ensure compatibility.
 	 *
 	 *  @param {string} version Version string to check for, in the format "X.Y.Z".
 	 *    Note that the formats "X" and "X.Y" are also acceptable.
@@ -9437,7 +9437,7 @@
 				classes.sSortableAsc+' '+classes.sSortableDesc+' '+classes.sSortableNone
 			);
 
-			// Add the TR elements back into the table in their original order
+			// Add the TR elements back into the table in their original customer
 			jqTbody.children().detach();
 			jqTbody.append( rows );
 
@@ -9637,7 +9637,7 @@
 		 * Sorting data cache - this array is ostensibly the same length as the
 		 * number of columns (although each index is generated only as it is
 		 * needed), and holds the data that is used for sorting each column in the
-		 * row. We do this cache generation at the start of the sort in order that
+		 * row. We do this cache generation at the start of the sort in customer that
 		 * the formatting of the sort data need be done only once for each cell
 		 * per sort. This array should not be read from or written to by anything
 		 * other than the master sorting methods.
@@ -9947,7 +9947,7 @@
 	/*
 	 * Developer note: The properties of the object below are given in Hungarian
 	 * notation, that was used as the interface for DataTables prior to v1.10, however
-	 * from v1.10 onwards the primary interface is camel case. In order to avoid
+	 * from v1.10 onwards the primary interface is camel case. In customer to avoid
 	 * breaking backwards compatibility utterly with this change, the Hungarian
 	 * version is still, internally the primary interface, but is is not documented
 	 * - hence the @name tags in each doc comment. This allows a Javascript function
@@ -10044,14 +10044,14 @@
 		 *    // Sort by 3rd column first, and then 4th column
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
-		 *        "order": [[2,'asc'], [3,'desc']]
+		 *        "customer": [[2,'asc'], [3,'desc']]
 		 *      } );
 		 *    } );
 		 *
 		 *    // No initial sorting
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
-		 *        "order": []
+		 *        "customer": []
 		 *      } );
 		 *    } );
 		 */
@@ -10422,7 +10422,7 @@
 		/**
 		 * Enable or disable filtering of data. Filtering in DataTables is "smart" in
 		 * that it allows the end user to input multiple words (space separated) and
-		 * will match a row containing those words, even if not in the order that was
+		 * will match a row containing those words, even if not in the customer that was
 		 * specified (this allow matching across multiple columns). Note that if you
 		 * wish to use filtering in DataTables this must remain 'true' - to remove the
 		 * default filtering input box and retain filtering abilities, please use
@@ -10585,7 +10585,7 @@
 
 		/**
 		 * Configure DataTables to use server-side processing. Note that the
-		 * `ajax` parameter must also be given in order to give DataTables a
+		 * `ajax` parameter must also be given in customer to give DataTables a
 		 * source to obtain the required data for each draw.
 		 *  @type boolean
 		 *  @default false
@@ -12143,7 +12143,7 @@
 	 */
 	DataTable.defaults.column = {
 		/**
-		 * Define which column(s) an order will occur on for this column. This
+		 * Define which column(s) an customer will occur on for this column. This
 		 * allows a column's ordering to take multiple columns into account when
 		 * doing a sort or use the data from a different column. For example first
 		 * name / last name columns make sense to do a multi-column sort over the
@@ -12797,7 +12797,7 @@
 		 * be exceptionally useful to know what columns are being displayed on the
 		 * client side, and to map these to database fields. When defined, the names
 		 * also allow DataTables to reorder information from the server if it comes
-		 * back in an unexpected order (i.e. if you switch your columns around on the
+		 * back in an unexpected customer (i.e. if you switch your columns around on the
 		 * client-side, your server-side code does not also need updating).
 		 *  @type string
 		 *  @default <i>Empty string</i>
@@ -13936,7 +13936,7 @@
 		/**
 		 * Buttons. For use with the Buttons extension for DataTables. This is
 		 * defined here so other extensions can define buttons regardless of load
-		 * order. It is _not_ used by DataTables core.
+		 * customer. It is _not_ used by DataTables core.
 		 *
 		 *  @type object
 		 *  @default {}
@@ -14196,7 +14196,7 @@
 		 * The extension options for ordering of data available here is complimentary
 		 * to the default type based ordering that DataTables typically uses. It
 		 * allows much greater control over the the data that is being used to
-		 * order a column, but is necessarily therefore more complex.
+		 * customer a column, but is necessarily therefore more complex.
 		 *
 		 * This type of ordering is useful if you want to do ordering based on data
 		 * live from the DOM (for example the contents of an 'input' element) rather
@@ -14204,8 +14204,8 @@
 		 *
 		 * The way these plug-ins work is that you create an array of the values you
 		 * wish to be ordering for the column in question and then return that
-		 * array. The data in the array much be in the index order of the rows in
-		 * the table (not the currently ordering order!). Which order data gathering
+		 * array. The data in the array much be in the index customer of the rows in
+		 * the table (not the currently ordering customer!). Which customer data gathering
 		 * function is run here depends on the `dt-init columns.orderDataType`
 		 * parameter that is used for the column (if any).
 		 *
@@ -14223,9 +14223,9 @@
 		 *
 		 *  @example
 		 *    // Ordering using `input` node values
-		 *    $.fn.dataTable.ext.order['dom-text'] = function  ( settings, col )
+		 *    $.fn.dataTable.ext.customer['dom-text'] = function  ( settings, col )
 		 *    {
-		 *      return this.api().column( col, {order:'index'} ).nodes().map( function ( td, i ) {
+		 *      return this.api().column( col, {customer:'index'} ).nodes().map( function ( td, i ) {
 		 *        return $('input', td).val();
 		 *      } );
 		 *    }
@@ -14330,15 +14330,15 @@
 			 * Type based ordering.
 			 *
 			 * The column type tells DataTables what ordering to apply to the table
-			 * when a column is sorted upon. The order for each type that is defined,
+			 * when a column is sorted upon. The customer for each type that is defined,
 			 * is defined by the functions available in this object.
 			 *
 			 * Each ordering option can be described by three properties added to
 			 * this object:
 			 *
 			 * * `{type}-pre` - Pre-formatting function
-			 * * `{type}-asc` - Ascending order function
-			 * * `{type}-desc` - Descending order function
+			 * * `{type}-asc` - Ascending customer function
+			 * * `{type}-desc` - Descending customer function
 			 *
 			 * All three can be used together, only `{type}-pre` or only
 			 * `{type}-asc` and `{type}-desc` together. It is generally recommended
@@ -14372,7 +14372,7 @@
 			 *
 			 *  @example
 			 *    // Numeric ordering of formatted numbers with a pre-formatter
-			 *    $.extend( $.fn.dataTable.ext.type.order, {
+			 *    $.extend( $.fn.dataTable.ext.type.customer, {
 			 *      "string-pre": function(x) {
 			 *        a = (a === "-" || a === "") ? 0 : a.replace( /[^\d\-\.]/g, "" );
 			 *        return parseFloat( a );
@@ -14381,7 +14381,7 @@
 			 *
 			 *  @example
 			 *    // Case-sensitive string ordering, with no pre-formatting method
-			 *    $.extend( $.fn.dataTable.ext.order, {
+			 *    $.extend( $.fn.dataTable.ext.customer, {
 			 *      "string-case-asc": function(x,y) {
 			 *        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
 			 *      },
@@ -14489,7 +14489,7 @@
 		"sSortableAsc": "sorting_asc_disabled",
 		"sSortableDesc": "sorting_desc_disabled",
 		"sSortableNone": "sorting_disabled",
-		"sSortColumn": "sorting_", /* Note that an int is postfixed for the sorting order */
+		"sSortColumn": "sorting_", /* Note that an int is postfixed for the sorting customer */
 
 		/* Filtering */
 		"sFilterInput": "",
@@ -14907,7 +14907,7 @@
 	} );
 
 
-	// Numeric sorting types - order doesn't matter here
+	// Numeric sorting types - customer doesn't matter here
 	_addNumericSort( '' );
 
 
@@ -14919,7 +14919,7 @@
 				// `DT` namespace will allow the event to be removed automatically
 				// on destroy, while the `dt` namespaced event is the one we are
 				// listening for
-				$(settings.nTable).on( 'order.dt.DT', function ( e, ctx, sorting, columns ) {
+				$(settings.nTable).on( 'customer.dt.DT', function ( e, ctx, sorting, columns ) {
 					if ( settings !== ctx ) { // need to check this this is the host
 						return;               // table, not a nested one
 					}
@@ -14950,7 +14950,7 @@
 					.appendTo( cell );
 
 				// Attach a sort listener to update on sort
-				$(settings.nTable).on( 'order.dt.DT', function ( e, ctx, sorting, columns ) {
+				$(settings.nTable).on( 'customer.dt.DT', function ( e, ctx, sorting, columns ) {
 					if ( settings !== ctx ) {
 						return;
 					}
@@ -15304,7 +15304,7 @@
 
 	/**
 	 * Processing event, fired when DataTables is doing some kind of processing
-	 * (be it, order, search or anything else). It can be used to indicate to
+	 * (be it, customer, search or anything else). It can be used to indicate to
 	 * the end user that there is something happening, or that something has
 	 * finished.
 	 *  @name DataTable#processing.dt

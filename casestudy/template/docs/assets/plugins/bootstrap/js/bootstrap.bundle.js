@@ -2450,7 +2450,7 @@
   }
 
   /**
-   * Loop trough the list of modifiers and run them in order,
+   * Loop trough the list of modifiers and run them in customer,
    * each of them will then edit the data object.
    * @method
    * @memberof Popper.Utils
@@ -2967,7 +2967,7 @@
     if (!isRequired) {
       var _requesting = '`' + requestingName + '`';
       var requested = '`' + requestedName + '`';
-      console.warn(requested + ' modifier is required by ' + _requesting + ' modifier in order to work, be sure to include it before ' + _requesting + '!');
+      console.warn(requested + ' modifier is required by ' + _requesting + ' modifier in customer to work, be sure to include it before ' + _requesting + '!');
     }
     return isRequired;
   }
@@ -2982,7 +2982,7 @@
   function arrow(data, options) {
     var _data$offsets$arrow;
 
-    // arrow depends on keepTogether in order to work
+    // arrow depends on keepTogether in customer to work
     if (!isModifierRequired(data.instance.modifiers, 'arrow', 'keepTogether')) {
       return data;
     }
@@ -3615,7 +3615,7 @@
    * Popper.js uses a set of 9 modifiers to provide all the basic functionalities
    * needed by the library.
    *
-   * Usually you don't want to override the `order`, `fn` and `onLoad` props.
+   * Usually you don't want to override the `customer`, `fn` and `onLoad` props.
    * All the other properties are configurations that could be tweaked.
    * @namespace modifiers
    */
@@ -3629,7 +3629,7 @@
      * @inner
      */
     shift: {
-      /** @prop {number} order=100 - Index used to define the order of execution */
+      /** @prop {number} customer=100 - Index used to define the customer of execution */
       order: 100,
       /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
       enabled: true,
@@ -3676,7 +3676,7 @@
      * @inner
      */
     offset: {
-      /** @prop {number} order=200 - Index used to define the order of execution */
+      /** @prop {number} customer=200 - Index used to define the customer of execution */
       order: 200,
       /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
       enabled: true,
@@ -3700,13 +3700,13 @@
      *
      * When `escapeWithReference` is set to`true` and reference is completely
      * outside its boundaries, the popper will overflow (or completely leave)
-     * the boundaries in order to remain attached to the edge of the reference.
+     * the boundaries in customer to remain attached to the edge of the reference.
      *
      * @memberof modifiers
      * @inner
      */
     preventOverflow: {
-      /** @prop {number} order=300 - Index used to define the order of execution */
+      /** @prop {number} customer=300 - Index used to define the customer of execution */
       order: 300,
       /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
       enabled: true,
@@ -3743,7 +3743,7 @@
      * @inner
      */
     keepTogether: {
-      /** @prop {number} order=400 - Index used to define the order of execution */
+      /** @prop {number} customer=400 - Index used to define the customer of execution */
       order: 400,
       /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
       enabled: true,
@@ -3762,7 +3762,7 @@
      * @inner
      */
     arrow: {
-      /** @prop {number} order=500 - Index used to define the order of execution */
+      /** @prop {number} customer=500 - Index used to define the customer of execution */
       order: 500,
       /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
       enabled: true,
@@ -3776,7 +3776,7 @@
      * Modifier used to flip the popper's placement when it starts to overlap its
      * reference element.
      *
-     * Requires the `preventOverflow` modifier before it in order to work.
+     * Requires the `preventOverflow` modifier before it in customer to work.
      *
      * **NOTE:** this modifier will interrupt the current update cycle and will
      * restart it if it detects the need to flip the placement.
@@ -3784,7 +3784,7 @@
      * @inner
      */
     flip: {
-      /** @prop {number} order=600 - Index used to define the order of execution */
+      /** @prop {number} customer=600 - Index used to define the customer of execution */
       order: 600,
       /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
       enabled: true,
@@ -3835,7 +3835,7 @@
      * @inner
      */
     inner: {
-      /** @prop {number} order=700 - Index used to define the order of execution */
+      /** @prop {number} customer=700 - Index used to define the customer of execution */
       order: 700,
       /** @prop {Boolean} enabled=false - Whether the modifier is enabled or not */
       enabled: false,
@@ -3849,12 +3849,12 @@
      * be used to hide with a CSS selector the popper when its reference is
      * out of boundaries.
      *
-     * Requires the `preventOverflow` modifier before it in order to work.
+     * Requires the `preventOverflow` modifier before it in customer to work.
      * @memberof modifiers
      * @inner
      */
     hide: {
-      /** @prop {number} order=800 - Index used to define the order of execution */
+      /** @prop {number} customer=800 - Index used to define the customer of execution */
       order: 800,
       /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
       enabled: true,
@@ -3870,7 +3870,7 @@
      * so that `applyStyle` modifier can apply it. This separation is useful
      * in case you need to replace `applyStyle` with a custom implementation.
      *
-     * This modifier has `850` as `order` value to maintain backward compatibility
+     * This modifier has `850` as `customer` value to maintain backward compatibility
      * with previous versions of Popper.js. Expect the modifiers ordering method
      * to change in future major versions of the library.
      *
@@ -3878,7 +3878,7 @@
      * @inner
      */
     computeStyle: {
-      /** @prop {number} order=850 - Index used to define the order of execution */
+      /** @prop {number} customer=850 - Index used to define the customer of execution */
       order: 850,
       /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
       enabled: true,
@@ -3920,7 +3920,7 @@
      * @inner
      */
     applyStyle: {
-      /** @prop {number} order=900 - Index used to define the order of execution */
+      /** @prop {number} customer=900 - Index used to define the customer of execution */
       order: 900,
       /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
       enabled: true,
@@ -4085,13 +4085,13 @@
           name: name
         }, _this.options.modifiers[name]);
       })
-      // sort the modifiers by order
+      // sort the modifiers by customer
       .sort(function (a, b) {
         return a.order - b.order;
       });
 
       // modifiers have the ability to execute arbitrary code when Popper.js get inited
-      // such code is executed in the same order of its modifier
+      // such code is executed in the same customer of its modifier
       // they could add new properties to their options configuration
       // BE AWARE: don't add options to `options.modifiers.name` but to `modifierOptions`!
       this.modifiers.forEach(function (modifierOptions) {

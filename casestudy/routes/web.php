@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -51,25 +53,35 @@ Route::middleware(['auth', 'checkAccountActive'])->prefix('admin')->group(functi
         Route::post('{id}/edit', [ProductController::class, 'update'])->name('product.update');
         Route::get('{id}/delete', [ProductController::class, 'destroy'])->name('product.destroy');
     });
+    Route::prefix('customers')->group(function () {
+        Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
+//        Route::get('create', [CustomerController::class, 'create'])->name('users.create');
+//        Route::post('create', [CustomerController::class, 'store'])->name('users.store');
+//        Route::get('{id}/edit', [CustomerController::class, 'edit'])->name('users.edit');
+//        Route::post('{id}/edit', [CustomerController::class, 'update'])->name('users.update');
+//        Route::get('{id}/delete', [CustomerController::class, 'destroy'])->name('users.destroy');
+    });
+    Route::prefix('orders')->group(function () {
+        Route::get( '/', [OrderController::class, 'index'])->name('orders.index');
+        Route::get( 'detail', [OrderController::class, 'order_detail'])->name('orders.order_detail');
+    });
 });
 Route::prefix('index')->group(function() {
-    Route::get('', function () {
-        return view('index.index');
-    });
 
     Route::get('{id}/product', [ProductController::class, 'product'])->name('index.product');
 
+    Route::get('/', [ProductController::class, 'home'])->name('index.home');
     Route::get('men', [ProductController::class, 'men'])->name('index.men');
     Route::get('women', [ProductController::class, 'women'])->name('index.women');
     Route::get('jewelry', [ProductController::class, 'jewelry'])->name('index.jewelry');
-    Route::get('onsale', [ProductController::class, 'onsale'])->name('index.onsale');
+    Route::get('story', [ProductController::class, 'story'])->name('index.story');
 
     Route::prefix('cart')->group(function (){
         Route::get('/{id}/add-to-cart', [CartController::class, 'addToCart'])->name('cart.addToCart');
         Route::get('/{id}/minus-to-cart', [CartController::class, 'minusToCart'])->name('cart.minusToCart');
         Route::get('cart', [CartController::class, 'showCart'])->name('cart.showCart');
-//        Route::get('/', [ProductController::class, 'show'])->name('cart');
         Route::get('delete', [CartController::class, 'deleteCart'])->name('cart.delete');
         Route::get('{id}', [CartController::class, 'deleteProduct'])->name('cart.deleteProduct');
+        Route::post('checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     });
 });

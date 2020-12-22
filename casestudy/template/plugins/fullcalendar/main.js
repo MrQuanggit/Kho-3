@@ -2179,7 +2179,7 @@ var FullCalendar = (function (exports) {
         var start = constraintRange.start; // the end of the previous range. the start of the new range
         var i;
         var dateRange;
-        // ranges need to be in order. required for our date-walking algorithm
+        // ranges need to be in customer. required for our date-walking algorithm
         ranges.sort(compareRanges);
         for (i = 0; i < ranges.length; i += 1) {
             dateRange = ranges[i];
@@ -6730,7 +6730,7 @@ var FullCalendar = (function (exports) {
         var endMarker = framingRange.end;
         var instanceStarts = [];
         while (dayMarker < endMarker) {
-            var instanceStart 
+            var instanceStart
             // if everyday, or this particular day-of-week
             = void 0;
             // if everyday, or this particular day-of-week
@@ -8559,8 +8559,8 @@ var FullCalendar = (function (exports) {
             }
             return refCallback;
         };
-        // TODO: check callers that don't care about order. should use getAll instead
-        // NOTE: this method has become less valuable now that we are encouraged to map order by some other index
+        // TODO: check callers that don't care about customer. should use getAll instead
+        // NOTE: this method has become less valuable now that we are encouraged to map customer by some other index
         // TODO: provide ONE array-export function, buildArray, which fails on non-numeric indexes. caller can manipulate and "collect"
         RefMap.prototype.collect = function (startIndex, endIndex, step) {
             return collectFromHash(this.currentMap, startIndex, endIndex, step);
@@ -11869,7 +11869,7 @@ var FullCalendar = (function (exports) {
                     /*
                     known bug: events that are force to be list-item but span multiple days still take up space in later columns
                     */
-                    nodes.push(createElement("div", { className: 'fc-daygrid-event-harness' + (isAbsolute ? ' fc-daygrid-event-harness-abs' : ''), key: instanceId, 
+                    nodes.push(createElement("div", { className: 'fc-daygrid-event-harness' + (isAbsolute ? ' fc-daygrid-event-harness-abs' : ''), key: instanceId,
                         // in print mode when in mult cols, could collide
                         ref: isMirror ? null : this.segHarnessRefs.createRef(instanceId + ':' + seg.firstCol), style: {
                             visibility: isInvisible ? 'hidden' : '',
@@ -12519,7 +12519,7 @@ var FullCalendar = (function (exports) {
             /* Table Component Render Methods
             ------------------------------------------------------------------------------------------------------------------*/
             // only a one-way height sync. we don't send the axis inner-content height to the DayGrid,
-            // but DayGrid still needs to have classNames on inner elements in order to measure.
+            // but DayGrid still needs to have classNames on inner elements in customer to measure.
             _this.renderTableRowAxis = function (rowHeight) {
                 var _a = _this.context, options = _a.options, viewApi = _a.viewApi;
                 var hookProps = {
@@ -13168,7 +13168,7 @@ var FullCalendar = (function (exports) {
             if (!slatCoords) {
                 return null;
             }
-            return segs.map(function (seg, i) { return (createElement(NowIndicatorRoot, { isAxis: false, date: date, 
+            return segs.map(function (seg, i) { return (createElement(NowIndicatorRoot, { isAxis: false, date: date,
                 // key doesn't matter. will only ever be one
                 key: i }, function (rootElRef, classNames, innerElRef, innerContent) { return (createElement("div", { ref: rootElRef, className: ['fc-timegrid-now-indicator-line'].concat(classNames).join(' '), style: { top: slatCoords.computeDateTop(seg.start, date) } }, innerContent)); })); });
         };

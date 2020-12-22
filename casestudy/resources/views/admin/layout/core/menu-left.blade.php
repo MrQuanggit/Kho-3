@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Orders
@@ -47,21 +47,21 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('orders.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Order List</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('orders.order_detail')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Order Detail</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('customers.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Customers Detail</p>
+                                <p>Customers</p>
                             </a>
                         </li>
                     </ul>

@@ -1813,7 +1813,7 @@
         }
 
         // At this point, we know that there is no accompanying operator -- let's
-        // deal with visual mode in order to select an appropriate match.
+        // deal with visual mode in customer to select an appropriate match.
 
         var from = next[0];
         // For whatever reason, when we use the "to" as returned by searchcursor.js directly,
