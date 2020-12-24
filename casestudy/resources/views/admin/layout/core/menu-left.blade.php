@@ -1,9 +1,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{route('admin.dashboard')}}" class="brand-link">
         <img src="" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="text-center font-weight-light">DQ Watch</span>
+        <span class="text-center font-weight-light">DANGQUANGWATCH</span>
     </a>
 
     <!-- Sidebar -->
@@ -50,12 +50,6 @@
                             <a href="{{route('orders.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Order List</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('orders.order_detail')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Order Detail</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -135,23 +129,11 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-header">LABELS</li>
+                <li class="nav-header">LOGOUT</li>
                 <li class="nav-item">
                     <a href="{{route('auth.logout')}}" class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
                         <p class="text">Log out</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-warning"></i>
-                        <p>Warning</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-info"></i>
-                        <p>Informational</p>
                     </a>
                 </li>
             </ul>

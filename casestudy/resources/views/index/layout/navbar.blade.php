@@ -13,6 +13,9 @@
     {{----}}
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     {{----}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+          integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
+    {{----}}
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <base href="{{asset('/index_resource/resource')}}">
     <link rel="stylesheet" href="style.css">
@@ -45,7 +48,7 @@
         <a href="{{route('index.women')}}" class="cool-link">WOMEN'S WATCHES</a>
         <a href="{{route('index.men')}}" class="cool-link">MEN'S WATCHES</a>
         <a href="{{route('index.jewelry')}}" class="cool-link">JEWELRY</a>
-        <a href="{{route('index.home')}}" class="cool-link">ABOUT US</a>
+        <a href="{{route('index.story')}}" class="cool-link">ABOUT US</a>
         <a href="{{route('cart.showCart')}}" id="hide-card"><i class="fas fa-shopping-cart"></i>
             <span>({{session('cart') ? session('cart')->totalQty:0}})</span></a>
         <label for="check" class="hide-menu-btn">

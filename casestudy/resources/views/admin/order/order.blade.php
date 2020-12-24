@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('page-title','Users List')
+@section('page-title','Orders List')
 @section('content')
     <section class="content">
         <div class="container-fluid">
@@ -21,6 +21,7 @@
                                     <th>Comment</th>
                                     <th>Customer</th>
                                     <th>Time create</th>
+                                    <th>Status</th>
                                     <th>Option</th>
                                 </tr>
                                 </thead>
@@ -32,12 +33,16 @@
                                         <td>{{$order->order_comment}}</td>
                                         <td>{{$order->customer->customer_name}}</td>
                                         <td>{{$order->created_at}}</td>
-                                        <td></td>
-                                        {{--                                        <td><a href="{{route('customers.edit', $customer->id)}}" style="padding: 5px"--}}
-                                        {{--                                               class="btn btn-warning">Edit</a>--}}
-                                        {{--                                            <a href="{{route('customers.destroy', $customer->id)}}" style="padding: 5px"--}}
-                                        {{--                                               class="btn btn-danger"--}}
-                                        {{--                                               onclick="return confirm('Bạn chắc chắn muốn xóa?')">Delete</a></td>--}}
+                                        <td>
+                                            @if($order->status == 1)
+                                                <span style="background-color: rgba(99, 0, 0, 0.5); border-radius: 15px; color: #fff0f0">Unconfimred</span>
+                                            @else
+                                                <span style="background-color: rgba(0, 14, 34, 0.5); border-radius: 15px; color: #fff0f0">Confirmed</span>
+                                            @endif
+                                        </td>
+                                        <td><a href="{{route('orders.order_detail', $order->id)}}"
+                                               class="btn btn-success">Show Detail</a>
+                                        </td>
                                 </tr>
                                 @empty
                                     <tr>
@@ -52,6 +57,7 @@
                                     <th>Comment</th>
                                     <th>Customer</th>
                                     <th>Time create</th>
+                                    <th>Status</th>
                                     <th>Option</th>
                                 </tr>
                                 </tfoot>

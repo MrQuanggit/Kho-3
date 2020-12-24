@@ -68,6 +68,9 @@ class ProductController extends Controller
         $products = Product::where('category_id', '3')->get();
         return view('index.category.jewelry', compact('products'));
     }
+    public function story(){
+        return view('index.category.story');
+    }
 
     public function product($id){
         $product    = $this->productService->findById($id);

@@ -106,7 +106,7 @@
                                 src="/storage/webs/him.png"
                                 alt=""></a>
                 <div class="card-text">
-                    <h3>Girt For Him</h3>
+                    <h3>Gift For Him</h3>
                     <a href="{{route('index.men')}}" class="btn btn-light">Go got it</a>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                                 src="/storage/webs/her.png"
                                 alt=""></a>
                 <div class="card-text">
-                    <h3>Girt For Her</h3>
+                    <h3>Gift For Her</h3>
                     <a href="{{route('index.women')}}" class="btn btn-light">Go got it</a>
                 </div>
             </div>

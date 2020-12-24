@@ -55,17 +55,15 @@ Route::middleware(['auth', 'checkAccountActive'])->prefix('admin')->group(functi
     });
     Route::prefix('customers')->group(function () {
         Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
-//        Route::get('create', [CustomerController::class, 'create'])->name('users.create');
-//        Route::post('create', [CustomerController::class, 'store'])->name('users.store');
-//        Route::get('{id}/edit', [CustomerController::class, 'edit'])->name('users.edit');
-//        Route::post('{id}/edit', [CustomerController::class, 'update'])->name('users.update');
-//        Route::get('{id}/delete', [CustomerController::class, 'destroy'])->name('users.destroy');
     });
     Route::prefix('orders')->group(function () {
         Route::get( '/', [OrderController::class, 'index'])->name('orders.index');
-        Route::get( 'detail', [OrderController::class, 'order_detail'])->name('orders.order_detail');
+        Route::get( '{id}/detail', [OrderController::class, 'order_detail'])->name('orders.order_detail');
+        Route::get('{id}/delete', [OrderController::class, 'destroy'])->name('order.delete');
+        Route::get('{id}/confirm', [OrderController::class, 'confirm'])->name('order.confirm');
     });
 });
+
 Route::prefix('index')->group(function() {
 
     Route::get('{id}/product', [ProductController::class, 'product'])->name('index.product');

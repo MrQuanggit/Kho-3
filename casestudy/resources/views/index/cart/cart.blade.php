@@ -62,7 +62,7 @@
                            href="{{route('cart.delete')}}">Delete All</a>
                     </div>
                 @else()
-                    <img class="input" src="https://professionalscareer.com/assets/images/emptycart.png" alt="">
+                    <img class="input" style="width: 100%; margin: auto" src="https://professionalscareer.com/assets/images/emptycart.png" alt="">
                     <a style="width: 100%; color: rgb(205, 188, 122); margin-bottom: 20px"
                        href="{{route('index.home')}}"
                        class="btn btn-primary">
@@ -70,7 +70,7 @@
                     </a>
                 @endif
             @else()
-                <img style="width: 100%" src="https://professionalscareer.com/assets/images/emptycart.png" alt="">
+                <img style="width: 100%; margin: auto" src="https://professionalscareer.com/assets/images/emptycart.png" alt="">
                 <a style="width: 100%; color: rgb(205, 188, 122); margin-bottom: 20px" href="{{route('index.home')}}"
                    class="btn btn-primary">
                     CONTINUE SHOPPING <i class="fas fa-arrow-left"></i>

@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('page-title','Users List')
+@section('page-title','Customer List')
 @section('content')
     <section class="content">
         <div class="container-fluid">
