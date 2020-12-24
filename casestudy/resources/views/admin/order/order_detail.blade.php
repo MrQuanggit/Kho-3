@@ -47,7 +47,7 @@
                                             <img style="width: 100px; height: 100px" src="{{$product->getProductImage()}}" alt="">
                                         </td>
                                         <td>{{$product->pivot->quantity}}</td>
-                                        <td>{{$product->pivot->priceEach}}</td>
+                                        <td>$ {{$product->pivot->priceEach}}</td>
                                         <td>
                                         </td>
                                 </tr>

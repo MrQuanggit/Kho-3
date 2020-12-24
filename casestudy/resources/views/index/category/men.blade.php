@@ -77,8 +77,9 @@
     </div>
 </div>
 {{--OWL--}}
-<div class="container" style="margin: 30px">
-    <h3 class="h3" style="text-align: center; padding: 20px 0">IMAGE FROM CUSTOMER</h3>
+<div class="container">
+    <div class="row">
+    <h3 class="h3">IMAGE FROM CUSTOMER</h3>
     <div class="owl-carousel owl-theme">
         <div class="item">
             <img style="width: 100%"
@@ -100,6 +101,7 @@
                  src="/storage/webs/kh4.jpeg"
                  alt="">
         </div>
+    </div>
     </div>
 </div>
 

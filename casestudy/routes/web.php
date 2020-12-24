@@ -26,9 +26,7 @@ Route::post('login', [AuthController::class, 'login'])->name('auth.login');
 
 Route::middleware(['auth', 'checkAccountActive'])->prefix('admin')->group(function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('auth.logout');
-    Route::get('dashboard', function () {
-        return view('admin.layout.dashboard');
-    })->name('admin.dashboard');
+    Route::get('dashboard', [ProductController::class, 'dashboard'])->name('admin.dashboard');
     Route::prefix('users')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('users.index');
         Route::get('create', [UserController::class, 'create'])->name('users.create');

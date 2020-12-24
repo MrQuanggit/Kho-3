@@ -484,3 +484,96 @@ footer {
     font-size: 18px;
 }
 
+/*Image index*/
+.image_index {
+    background-image: url("https://www.danielwellington.com/ecom2-image-bucket/mv3xw5mnbbp0/7un0CflxO1zH7FeVnnhGN0/2649f87a4d4c5468a1ccf8833e10789b/Holiday_Newsletter_Footer_2800x1200.jpg?ecom2=true&format=jpg&width=1366&quality=80&bg-color=FFFFFF");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    margin: 10px 0;
+}
+
+/*Ghost Index*/
+.ghost {
+    width: 140px;
+    height: 160px;
+    background-color: #fff0f0;
+    border-radius: 70px 70px 0 0;
+    position: relative;
+    cursor: pointer;
+    animation: floating 2s infinite ease-in-out;
+}
+
+@keyframes floating {
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+.face {
+    width: 100%;
+    position: relative;
+    top: 60px;
+    left: calc(37% - 50px);
+}
+.eyes {
+    height: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 14px;
+}
+.eyes span{
+    width: 24px;
+    height: 24px;
+    background-color: rgba(0, 14, 34, 0.5);
+    border-radius: 50%;
+    transition: .3s linear;
+}
+.ghost:hover .eyes span {
+    height: 16px;
+}
+.mouth {
+    width: 40px;
+    height: 20px;
+    background-color: rgba(0, 14, 34, 0.5);
+    margin: auto;
+    border-radius: 0 0 20px 20px;
+    transition: .3s linear;
+}
+.ghost:hover .mouth {
+    height: 12px;
+}
+.hands {
+    width: 180px;
+    position: absolute;
+    left: -20px;
+    top: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+.hands span {
+    width: 20px;
+    height: 30px;
+    background-color: #fff0f0;
+}
+.hands span:first-child {
+    border-radius: 20px 0 0 20px;
+}
+.hands span:last-child {
+    border-radius: 0 20px 20px 0;
+}
+.feet {
+    position: absolute;
+    width: 100%;
+    bottom: -18px;
+    display: flex;
+}
+.feet span{
+    flex: 1;
+    height: 20px;
+    background-color: #fff0f0;
+    border-radius: 0 0 20px 20px;
+}
+.ghost_text

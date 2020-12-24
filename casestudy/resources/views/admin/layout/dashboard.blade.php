@@ -8,14 +8,13 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>9999</h3>
-
-                            <p>Khách hàng</p>
+                            <h3>{{$totalOrder}}<sup style="font-size: 20px"></sup></h3>
+                            <p>Orders</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Thông tin thêm <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">More Information<i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -23,14 +22,13 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>999<sup style="font-size: 20px"></sup></h3>
-
-                            <p>Đơn đặt h</p>
+                            <h3>{{$count}}</h3>
+                            <p>Total View</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Thông tin thêm <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">More Information<i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -38,14 +36,13 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>99999</h3>
-
-                            <p>Lượt truy cập trang web</p>
+                            <h3>{{$totalCustomer}}</h3>
+                            <p>Customers</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Thông tin thêm <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">More Information<i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -53,14 +50,13 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>99</h3>
-
-                            <p>Tài khoản khách hàng</p>
+                            <h3>{{$sale}}</h3>
+                            <p>Product Sales</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Thông tin thêm <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">More Information<i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

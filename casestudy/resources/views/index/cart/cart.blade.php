@@ -62,7 +62,8 @@
                            href="{{route('cart.delete')}}">Delete All</a>
                     </div>
                 @else()
-                    <img class="input" style="width: 100%; margin: auto" src="https://professionalscareer.com/assets/images/emptycart.png" alt="">
+                    <img class="input" style="width: 100%; margin: auto"
+                         src="https://professionalscareer.com/assets/images/emptycart.png" alt="">
                     <a style="width: 100%; color: rgb(205, 188, 122); margin-bottom: 20px"
                        href="{{route('index.home')}}"
                        class="btn btn-primary">
@@ -70,7 +71,8 @@
                     </a>
                 @endif
             @else()
-                <img style="width: 100%; margin: auto" src="https://professionalscareer.com/assets/images/emptycart.png" alt="">
+                <img style="width: 100%; margin: auto" src="https://professionalscareer.com/assets/images/emptycart.png"
+                     alt="">
                 <a style="width: 100%; color: rgb(205, 188, 122); margin-bottom: 20px" href="{{route('index.home')}}"
                    class="btn btn-primary">
                     CONTINUE SHOPPING <i class="fas fa-arrow-left"></i>
@@ -81,25 +83,41 @@
             <form action="{{route('cart.checkout')}}" method="post">
                 @csrf
                 <h4>INFORMATION CUSTOMERS</h4>
-                <div class="col-12">
-                    <p>* Email:</p>
-                    <input name="customer_email" class="input-cart" type="text">
+                <div class="col-12 form-group">
+                    <label>* Email:</label>
+                    <input name="customer_email" value="{{ old('customer_email') }}"
+                           class="input-cart form-control @error('customer_email') is-invalid @enderror" type="text">
+                    @error('customer_email')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                <div class="col-12">
-                    <p>* Name:</p>
-                    <input name="customer_name" class="input-cart" type="text">
+                <div class="col-12 form-group">
+                    <label>* Name:</label>
+                    <input name="customer_name" value="{{ old('customer_name') }}"
+                           class="input-cart form-control @error('customer_name') is-invalid @enderror" type="text">
+                    @error('customer_name')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                <div class="col-12">
-                    <p>* Phone:</p>
-                    <input name="customer_phone" class="input-cart" type="text">
+                <div class="col-12 form-group">
+                    <label>* Phone:</label>
+                    <input name="customer_phone" value="{{ old('customer_phone') }}"
+                           class="input-cart form-control @error('customer_phone') is-invalid @enderror" type="text">
+                    @error('customer_phone')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                <div class="col-12">
-                    <p>* Address:</p>
-                    <input name="customer_address" class="input-cart" type="text">
+                <div class="col-12 form-group">
+                    <label>* Address:</label>
+                    <input name="customer_address" value="{{ old('customer_address') }}"
+                           class="input-cart form-control @error('customer_address') is-invalid @enderror" type="text">
+                    @error('customer_address')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                <div class="col-12">
-                    <p>* Comment:</p>
-                    <input name="order_comment" class="input-cart" type="text">
+                <div class="col-12 form-group">
+                    <label>* Comment:</label>
+                    <input name="order_comment" class="input-cart form-control" type="text">
                 </div>
                 <p style="float: left; padding-left: 15px"><i class="fas fa-globe"> Vietnam</i></p>
                 <div class="clearfix"></div>
@@ -134,8 +152,8 @@
                          alt="">
                 </div>
                 <button style="width: 100%; color: rgb(205, 188, 122); margin-bottom: 20px"
-                       type="submit"
-                       class="btn btn-primary">
+                        type="submit"
+                        class="btn btn-primary">
                     COMPLETE PAYMENT
                 </button>
             </form>

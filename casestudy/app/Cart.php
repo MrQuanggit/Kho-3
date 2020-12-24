@@ -43,11 +43,15 @@ class Cart
         if(array_key_exists($product->id,$this->items)) {
             $storeItem = $this->items[$product->id];
         }
-        $storeItem['totalQty']--;
-        $storeItem['totalPrice']-=$product->priceEach;
-        $this->items[$product->id] = $storeItem;
-        $this->totalQty--;
-        $this->totalPrice-=$product->priceEach;
+        if($storeItem['totalQty'] > 1) {
+            $storeItem['totalQty']--;
+            $storeItem['totalPrice'] -= $product->priceEach;
+            $this->items[$product->id] = $storeItem;
+            $this->totalQty--;
+            $this->totalPrice -= $product->priceEach;
+        } else {
+            $storeItem['totalQty'] = 1;
+        }
     }
 
     function remove($product){

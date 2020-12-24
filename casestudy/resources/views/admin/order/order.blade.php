@@ -35,9 +35,9 @@
                                         <td>{{$order->created_at}}</td>
                                         <td>
                                             @if($order->status == 1)
-                                                <span style="background-color: rgba(99, 0, 0, 0.5); border-radius: 15px; color: #fff0f0">Unconfimred</span>
+                                                <span style="background-color: #C1AB1E; border-radius: 15px; color: #fff0f0; padding: 5px">Unconfimred</span>
                                             @else
-                                                <span style="background-color: rgba(0, 14, 34, 0.5); border-radius: 15px; color: #fff0f0">Confirmed</span>
+                                                <span style="background-color: #45C188; border-radius: 15px; color: #fff0f0; padding: 5px">Confirmed</span>
                                             @endif
                                         </td>
                                         <td><a href="{{route('orders.order_detail', $order->id)}}"

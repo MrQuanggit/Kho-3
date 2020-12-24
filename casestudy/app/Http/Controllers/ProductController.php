@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProductRequest;
 use App\Http\Services\ProductService;
 use App\Models\Category;
+use App\Models\Customer;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -82,8 +84,34 @@ class ProductController extends Controller
     public function home(){
         $favorites  = Product::orderBy('view', 'desc')
             ->limit(4)->get();
-        $hotSales   = Product::orderBy('stock', 'desc')
+        $hotSales   = Product::orderBy('stock', 'asc')
             ->limit(5)->get();
         return view('index.index', compact('hotSales', 'favorites'));
+    }
+
+    public function dashboard() {
+        $products = Product::all();
+        $count = 0;
+        foreach ($products as $product) {
+            $count += $product->view;
+        }
+
+        $orders = Order::all();
+        $totalOrder = 0;
+        $sale = 0;
+        foreach ($orders as $order) {
+            foreach($order->products as $product){
+                $sale += $product->pivot->quantity;
+            }
+            $totalOrder += 1;
+        }
+
+        $customers = Customer::all();
+        $totalCustomer = 0;
+        foreach ($customers as $customer) {
+            $totalCustomer += 1;
+        }
+
+        return view('admin.layout.dashboard', compact('count', 'totalOrder', 'totalCustomer', 'sale'));
     }
 }

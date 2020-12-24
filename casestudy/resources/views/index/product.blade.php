@@ -46,7 +46,7 @@
         <div class="col-sm-6 col-md-5">
             <div>
                 <span style="font-size: 24px">{{$product->product_name}}</span>
-                <span style="float: right">${{$product->priceEach}}</span>
+                <span style="float: right; font-size: 22px">${{$product->priceEach}}</span>
             </div>
             <hr>
             <p>Size: <span class="btn btn-primary">{{$product->size}}</span></p>

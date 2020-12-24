@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CartRequest;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\Product;
@@ -17,7 +18,8 @@ class CartController extends Controller
         $cart = new Cart($oldCart);
         $cart->add($product);
         session()->put('cart',$cart);
-        return back();
+        $message = 'Add Product Success!';
+        return back()->with('success',$message);
     }
 
     public function minusToCart($id){
@@ -26,7 +28,8 @@ class CartController extends Controller
         $cart = new Cart($oldCart);
         $cart->minus($product);
         session()->put('cart',$cart);
-        return back();
+        $message = 'Minus Product Success!';
+        return back()->with('success',$message);
     }
 
     public function showCart(){
@@ -50,7 +53,7 @@ class CartController extends Controller
         return back()->with('error',$message);
     }
 
-    public function checkout(Request $request){
+    public function checkout(CartRequest $request){
 
         $customer = new Customer();
         $customer->customer_name = $request->input('customer_name');
