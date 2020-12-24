@@ -18,8 +18,7 @@ class CartController extends Controller
         $cart = new Cart($oldCart);
         $cart->add($product);
         session()->put('cart',$cart);
-        $message = 'Add Product Success!';
-        return back()->with('success',$message);
+        return back();
     }
 
     public function minusToCart($id){
@@ -28,8 +27,7 @@ class CartController extends Controller
         $cart = new Cart($oldCart);
         $cart->minus($product);
         session()->put('cart',$cart);
-        $message = 'Minus Product Success!';
-        return back()->with('success',$message);
+        return back();
     }
 
     public function showCart(){
@@ -40,7 +38,7 @@ class CartController extends Controller
     public function deleteCart() {
         session()->forget('cart');
         $message = "Delete Cart Complete !";
-        return redirect()->route('cart.showCart')->with('success',$message);
+        return redirect()->route('cart.showCart')->with('info',$message);
     }
 
     public function deleteProduct($id) {

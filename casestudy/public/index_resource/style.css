@@ -490,7 +490,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 300px;
     margin: 10px 0;
 }
 
@@ -546,7 +546,7 @@ footer {
     height: 12px;
 }
 .hands {
-    width: 180px;
+    width: 175px;
     position: absolute;
     left: -20px;
     top: 80px;
@@ -576,4 +576,16 @@ footer {
     background-color: #fff0f0;
     border-radius: 0 0 20px 20px;
 }
-.ghost_text
+
+.ghost_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin: 10px 0;
+}
+.ghost_text a {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: rgba(0, 14, 34, 0.9);
+}

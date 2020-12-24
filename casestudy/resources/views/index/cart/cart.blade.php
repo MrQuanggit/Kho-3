@@ -26,9 +26,8 @@
 <div class="container">
     <div class="row">
         <h2 class="text-center col-sm-12 col-md-12">CHECK OUT</h2>
-        <div class="col-sm-6 col-md-1">
-        </div>
-        <div class="col-sm-6 col-md-4" style="">
+        <div class="col-sm-6 col-md-5">
+            <div class="col-sm-6 col-md-4" style="position: fixed;">
             @if(isset($cart))
                 @if($cart->totalQty != 0)
                     @foreach($cart->items as $item)
@@ -78,6 +77,7 @@
                     CONTINUE SHOPPING <i class="fas fa-arrow-left"></i>
                 </a>
             @endif
+            </div>
         </div>
         <div class="col-sm-6 col-md-7">
             <form action="{{route('cart.checkout')}}" method="post">
