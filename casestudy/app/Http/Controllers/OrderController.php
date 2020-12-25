@@ -33,7 +33,8 @@ class OrderController extends Controller
 
     public function destroy($id) {
         if (!$this->userCan('admin')) {
-            abort(403);
+            $message = 'Only Admin Can Deleted The Order!';
+            return redirect()->route('orders.index')->with('success',$message);
         }
         $order = $this->orderService->findById($id);
         $order->delete();
