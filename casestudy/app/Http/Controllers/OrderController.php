@@ -32,6 +32,9 @@ class OrderController extends Controller
     }
 
     public function destroy($id) {
+        if (!$this->userCan('admin')) {
+            abort(403);
+        }
         $order = $this->orderService->findById($id);
         $order->delete();
         $message = 'Successfully Deleted The Order!';

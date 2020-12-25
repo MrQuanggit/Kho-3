@@ -35,6 +35,7 @@
                 <p style="float: left; padding: 15px"><i class="fab fa-google-plus-g"></i></p>
                 <p style="float: left; padding: 15px"><i class="fab fa-instagram"></i></p>
                 <p style="float: left; padding: 15px"><i class="fab fa-youtube"></i></p>
+                </div>
             </div>
             <div class="col-12">
                 <hr class="light-100">

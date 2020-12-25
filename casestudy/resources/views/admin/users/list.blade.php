@@ -10,7 +10,9 @@
                             <div class="row">
                                 <div class="col-12 col-md-6"></div>
                                 <div class="col-12 col-md-6" style="text-align: right">
+                                    @if(\Illuminate\Support\Facades\Auth::user()->role == 1)
                                     <a href="{{route('users.create')}}" class="btn btn-success">+ Add User</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -45,11 +47,14 @@
                                         <td>{{$user->user_email}}</td>
                                         <td>{{$user->rolee->name}}</td>
                                         <td>{{$user->status}}</td>
-                                        <td><a href="{{route('users.edit', $user->id)}}" style="padding: 5px"
+                                        <td>
+                                            @if(\Illuminate\Support\Facades\Auth::user()->role == 1)
+                                            <a href="{{route('users.edit', $user->id)}}" style="padding: 5px"
                                                class="btn btn-warning">Edit</a>
                                             <a href="{{route('users.destroy', $user->id)}}" style="padding: 5px"
                                                class="btn btn-danger"
-                                               onclick="return confirm('Bạn chắc chắn muốn xóa?')">Delete</a></td>
+                                               onclick="return confirm('Bạn chắc chắn muốn xóa?')">Delete</a>
+                                            @endif</td>
                                 </tr>
                                 @empty
                                     <tr>

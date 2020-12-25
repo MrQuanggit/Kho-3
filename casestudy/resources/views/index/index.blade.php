@@ -139,7 +139,7 @@
 {{----}}
 <div>
     <div class="ghost_text">
-        <a href="{{route('index.story')}}" class="btn btn-outline-primary">Out Story</a>
+        <a href="{{route('index.story')}}" class="btn btn-outline-primary">THE STORY BEHIND DANG QUANG WATCH</a>
     </div>
     <div class="image_index">
         <div class="ghost">

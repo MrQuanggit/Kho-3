@@ -48,10 +48,13 @@
                             @endif">
                         </a>
                         <ul class="social">
-                            <li><a href="{{route('cart.addToCart',$product->id)}}" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                            <li><a href="{{route('index.product',$product->id)}}" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                            <li><a href="{{route('cart.addToCart',$product->id)}}" data-tip="Add to Cart"><i
+                                        class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="{{route('index.product',$product->id)}}" data-tip="Quick View"><i
+                                        class="fa fa-search"></i></a></li>
                         </ul>
-                        <a href="{{route('index.product',$product->id)}}" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a>
+                        <a href="{{route('index.product',$product->id)}}" class="select-options"><i
+                                class="fa fa-arrow-right"></i> Select Options</a>
                     </div>
                     <div class="product-content">
                         <h3 class="title"><a href="#">{{$product->product_name}}</a></h3>
@@ -76,54 +79,34 @@
         </div>
     </div>
 </div>
-{{--OWL--}}
+{{--Customer--}}
 <div class="container">
     <div class="row">
-    <h3 class="h3">IMAGE FROM CUSTOMER</h3>
-    <div class="owl-carousel owl-theme">
-        <div class="item">
-            <img style="width: 100%"
-                 src="/storage/webs/kh5.jpeg"
-                 alt="">
+        <div class="col-md-12 col-sm-12">
+            <h3 class="text-center">IMAGE FROM CUSTOMER</h3>
+            <div class="col-md-3 col-sm-3">
+                <img style="width: 100%"
+                     src="/storage/webs/kh5.jpeg"
+                     alt="">
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <img style="width: 100%"
+                     src="/storage/webs/kh6.png"
+                     alt="">
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <img style="width: 100%"
+                     src="/storage/webs/kh3.jpeg"
+                     alt="">
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <img style="width: 100%"
+                     src="/storage/webs/kh4.jpeg"
+                     alt="">
+            </div>
         </div>
-        <div class="item">
-            <img style="width: 100%"
-                 src="/storage/webs/kh6.png"
-                 alt="">
-        </div>
-        <div class="item">
-            <img style="width: 100%"
-                 src="/storage/webs/kh3.jpeg"
-                 alt="">
-        </div>
-        <div class="item">
-            <img style="width: 100%"
-                 src="/storage/webs/kh4.jpeg"
-                 alt="">
-        </div>
-    </div>
     </div>
 </div>
 
 @include('index.layout.footer')
 
-<script>
-    $(document).ready(function ($) {
-        $('.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 5
-                }
-            }
-        })
-    })
-</script>
