@@ -38,21 +38,21 @@ class CategoryController extends Controller {
     }
 
     public function update(CategoryRequest $request, $id) {
-        $category = $this->categoryService->findById($id);
+        $category   = $this->categoryService->findById($id);
         $this->categoryService->update($request, $category);
-        $message = 'Successfully Edited Category!';
+        $message    = 'Successfully Edited Category!';
         return redirect()->route('category.index')->with('info',$message);
     }
 
     public function destroy($id) {
-        $products = Product::where('category_id', $id)->get();
+        $products       = Product::where('category_id', $id)->get();
         if(count($products)) {
-            $message = "Can't Delete This Category !";
+            $message    = "Can't Delete This Category !";
             return redirect()->route('category.index')->with('error',$message);
         } else {
-            $category = $this->categoryService->findById($id);
+            $category   = $this->categoryService->findById($id);
             $category->delete();
-            $message = 'Successfully Deleted Category!';
+            $message    = 'Successfully Deleted Category!';
             return redirect()->route('category.index')->with('success',$message);
         }
     }

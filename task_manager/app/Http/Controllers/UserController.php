@@ -27,6 +27,9 @@ class UserController extends Controller
 
     function create()
     {
+        if (!$this->userCan('admin')) {
+            abort(403);
+        }
         $roles = Role::all();
         return view('admin.users.create', compact('roles'));
     }
@@ -76,5 +79,4 @@ class UserController extends Controller
             return redirect()->route('users.index')->with('success',$message);
         }
     }
-
 }

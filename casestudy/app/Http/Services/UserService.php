@@ -6,6 +6,7 @@ use App\Http\Repositories\UserRepository;
 use App\Models\StatusConstant;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserService implements ServiceInterface {
 
@@ -30,16 +31,15 @@ class UserService implements ServiceInterface {
 
     function add($request, $obj = null)
     {
-        $obj = new User();
-        $obj->id = $request->id;
-        $obj->name = $request->name;
-        $obj->user_name = $request->user_name;
-        $obj->password = Hash::make($request->password);
-        $obj->status = 1;
-        $obj->user_email = $request->user_email;
-        $obj->user_phone = $request->user_phone;
+        $obj                = new User();
+        $obj->name          = $request->name;
+        $obj->user_name     = $request->user_name;
+        $obj->password      = Hash::make($request->password);
+        $obj->status        = 1;
+        $obj->user_email    = $request->user_email;
+        $obj->user_phone    = $request->user_phone;
         $this->uploadFile($obj, $request);
-        $obj->role = $request->role;
+        $obj->role_id       = $request->role;
         $this->userRepository->save($obj);
     }
 
@@ -63,9 +63,8 @@ class UserService implements ServiceInterface {
     function uploadFile($obj, $request)
     {
         if ($request->hasFile('user_image')) {
-            $img = $request->user_image;
-            $path = $img->store('public/avatars');
-            $obj->user_image = $path;
+            $path               = Storage::disk('s3')->put('images',$request->user_image,'public');
+            $obj->user_image    = $path;
         }
     }
 }

@@ -11,7 +11,7 @@ class CheckAccountActive
 {
     public function handle(Request $request, Closure $next)
     {
-        $accountLogin = Auth::user();
+        $accountLogin   = Auth::user();
         if ($accountLogin->status == StatusConst::NO_ACTIVE) {
             return redirect()->route('login');
         }

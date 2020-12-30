@@ -19,7 +19,9 @@
                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
                 </svg> Quản lý người dùng</a>
             <ul class="c-sidebar-nav-dropdown-items">
+                @can('admin')
                 <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('users.create') }}"> Thêm mới người dùng</a></li>
+                @endcan
                 <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('users.index') }}"> Danh sách người dùng</a></li>
                 <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('categories.index') }}"> Danh sách thể loại</a></li>
                 <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('posts.index') }}"> Danh sách bài viết</a> </li>

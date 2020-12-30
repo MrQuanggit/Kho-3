@@ -14,7 +14,7 @@ class CreateProductTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('product_name', 50);
             $table->longText('description');
             $table->string('stock', 30)->nullable();
@@ -24,7 +24,7 @@ class CreateProductTable extends Migration
             $table->string('size', 30)->nullable();
             $table->longText('image1')->nullable();;
             $table->longText('image2')->nullable();;
-            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories');
         });
     }

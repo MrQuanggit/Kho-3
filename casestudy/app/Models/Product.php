@@ -37,17 +37,17 @@ class Product extends Model
     }
 
     public function getProductImage() {
-        return '/storage/products/' .ltrim($this->image1, '/public/products/');
+        return "https://quangvoc8.s3.amazonaws.com/".$this->image1;
     }
 
     public function getProductImage2() {
-        return '/storage/products/' .ltrim($this->image2, '/public/products/');
+        return "https://quangvoc8.s3.amazonaws.com/".$this->image2;
     }
     public function getProductImage3() {
-        return '/storage/products/' .ltrim($this->image3, '/public/products/');
+        return "https://quangvoc8.s3.amazonaws.com/".$this->image3;
     }
     public function getProductImage4() {
-        return '/storage/products/' .ltrim($this->image4, '/public/products/');
+        return "https://quangvoc8.s3.amazonaws.com/".$this->image4;
     }
 
     public $timestamps = false;

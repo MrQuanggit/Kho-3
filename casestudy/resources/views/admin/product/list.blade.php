@@ -10,7 +10,7 @@
                             <div class="row">
                                 <div class="col-12 col-md-6"></div>
                                 <div class="col-12 col-md-6" style="text-align: right">
-                                    <a href="{{route('product.create')}}" class="btn btn-success">+ Add User</a>
+                                    <a href="{{route('product.create')}}" class="btn btn-success">+ Add Product</a>
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                         <td>{{$key + 1}}</td>
                                         <td>{{$product->product_name}}</td>
                                         <td><img style="width: 100px; height: 100px"
-                                                 src="@if($product->getProductImage() == '/storage/products/')
+                                                 src="@if($product->getProductImage() == 'https://quangvoc8.s3.amazonaws.com/')
                                                      https://miro.medium.com/max/2834/0*f81bU2qWpP51WWWC.jpg
                                                    @else
                                                  {{$product->getProductImage()}}
@@ -49,11 +49,11 @@
                                                class="btn btn-warning">Edit</a>
                                             <a href="{{route('product.destroy', $product->id)}}" style="padding: 5px"
                                                class="btn btn-danger"
-                                               onclick="return confirm('Bạn chắc chắn muốn xóa?')">Delete</a></td>
+                                               onclick="return confirm('Do you want to delete this product?')">Delete</a></td>
                                 </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="3">Không có dữ liệu</td>
+                                        <td colspan="3">No information</td>
                                     </tr>
                                 @endforelse
                                 </tbody>

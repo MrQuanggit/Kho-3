@@ -17,7 +17,7 @@
                 <a href="{{route('admin.dashboard')}}" class="d-block">
                     {{\Illuminate\Support\Facades\Auth::user()->name}}
                     <br>
-                    <i>Role: <b>{{\Illuminate\Support\Facades\Auth::user()->rolee->name}}</b></i>
+                    <i>Role: <b>{{\Illuminate\Support\Facades\Auth::user()->role->name}}</b></i>
                 </a>
                 <a href="">Dashboard</a>
             </div>
@@ -59,7 +59,7 @@
                         </li>
                     </ul>
                 </li>
-                @if(\Illuminate\Support\Facades\Auth::user()->role == 1)
+                @if(\Illuminate\Support\Facades\Auth::user()->role_id == 1)
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>

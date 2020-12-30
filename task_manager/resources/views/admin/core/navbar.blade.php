@@ -24,7 +24,7 @@
                 </div>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('cart.showCart')}}">Cart <span>({{session('cart') ? session('cart')->totalQty:0}})</span></a>
+                    <a class="nav-link" href="{{route('cart.showCart')}}">Cart <span>({{session('cart') ? session('cart')->totalQty:0}})</span></a>
             </li>
             <li class="nav-item active">
                 <span class="nav-link">Welcome, {{\Illuminate\Support\Facades\Auth::user()->username}}</span>

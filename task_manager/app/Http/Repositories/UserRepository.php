@@ -39,6 +39,6 @@ class UserRepository
 
     function getUserById($id)
     {
-        return $this->userModel->findOrFail($id);
+            return $this->userModel->findOrFail($id);
     }
 }

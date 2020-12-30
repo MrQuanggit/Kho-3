@@ -23,7 +23,7 @@ class User extends Authenticatable
         'user_image',
         'status',
         'name',
-        'role',
+        'role_id',
     ];
 
     protected $casts = [
@@ -31,12 +31,13 @@ class User extends Authenticatable
     ];
 
     public function getUserImage () {
-        return '/storage/avatars/' .ltrim($this->user_image, '/public/avatars/');
+//        return '/storage/avatars/' .ltrim($this->user_image, '/public/avatars/');
+        return "https://quangvoc8.s3.amazonaws.com/".$this->user_image;
     }
 
-    function rolee()
+    function role()
     {
-        return $this->belongsTo(Role::class, 'role','id');
+        return $this->belongsTo(Role::class, 'role_id','id');
     }
 
     public $timestamps = false;

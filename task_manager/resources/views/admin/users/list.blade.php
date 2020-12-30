@@ -7,7 +7,7 @@
                 <div class="col-12">
                 </div>
                 <div class="card-body">
-                    <a href="{{ route('users.create') }}" class="btn btn-success">Add</a>
+                    <a href="{{ route('users.create') }}" class="btn btn-success">+ Add User</a>
                     <form action="{{ route('users.search') }}" style="float: right" method="get">
                         @csrf
                         <input name="search" type="text" value="{{ isset($search) ? $search : '' }}" placeholder="Search for ..">

@@ -1,6 +1,6 @@
 @include('index.layout.navbar')
 <img style="width: 100%"
-     src="/storage/webs/story.png"
+     src="https://www.danielwellington.com/ecom2-image-bucket/mv3xw5mnbbp0/6gewFjBvr4tpdGu8WwqigQ/8392dc32f874f71bee12dfe412c5b12f/our_story_hero_2800x900.jpg"
      alt="">
 {{----}}
 <div class="container">
@@ -22,7 +22,7 @@
             </p>
         </div>
         <img style="width: 100%"
-             src="/storage/webs/story2.png"
+             src="https://www.danielwellington.com/ecom2-image-bucket/mv3xw5mnbbp0/OgdEw1aBG0O0gQyaqYMus/819d6c6417c8d2ce0bd626a8f7ddf692/middlepiece-petite.jpg"
              alt="">
         <h2 class="text-center col-12">THE DESIGN</h2>
         <div class="col-1"></div>
@@ -39,7 +39,7 @@
         </div>
         <div class="col-1"></div>
         <img style="width: 100%"
-             src="/storage/webs/story1.png"
+             src="https://www.danielwellington.com/ecom2-image-bucket/mv3xw5mnbbp0/570MkGRx6yQTQAFCdI5k6a/7b05638773fe5c3ea06c96c1b695c426/our_story_tinified.jpg"
              alt="">
         <h2 class="text-center col-12">THANK YOU FOR COMING TO US !</h2>
     </div>

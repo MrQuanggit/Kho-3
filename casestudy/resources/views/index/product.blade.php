@@ -116,7 +116,7 @@
         <div class="col-md-6 col-sm-6">
             <div class="card-group">
                 <a href=""><img class="image-group"
-                                src="/storage/webs/him.png"
+                                src="https://www.danielwellington.com/ecom2-image-bucket/mv3xw5mnbbp0/7C2aNSlpMDI8bbVEqoGNx4/2bf5b0e8e25219a89aab3f72c811292c/Holiday_gifts_for_him_1000x900.jpg"
                                 alt=""></a>
                 <div class="card-text">
                     <h3>Gift For Him</h3>
@@ -127,7 +127,7 @@
         <div class="col-md-6 col-sm-6]">
             <div class="card-group">
                 <a href=""><img class="image-group"
-                                src="/storage/webs/her.png"
+                                src="https://www.danielwellington.com/ecom2-image-bucket/mv3xw5mnbbp0/6IxTBxHxpgWZQv4jqHPjMv/0f530ff16bebdacff30fdb202f459c72/Holiday_gifts_for_her_1000x900.jpg"
                                 alt=""></a>
                 <div class="card-text">
                     <h3>Gift For Her</h3>

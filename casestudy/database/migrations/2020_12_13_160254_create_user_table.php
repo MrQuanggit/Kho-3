@@ -20,7 +20,10 @@ class CreateUserTable extends Migration
             $table->string('user_email', 30)->nullable();
             $table->longText('user_image')->nullable();
             $table->string('user_phone')->nullable();
+            $table->string('name')->nullable();
             $table->integer('status')->default(1);
+            $table->unsignedInteger('role_id')->nullable();
+            $table->foreign('role_id')->references('id')->on('parts');
         });
     }
 

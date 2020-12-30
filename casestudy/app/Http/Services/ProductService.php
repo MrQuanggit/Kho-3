@@ -5,6 +5,7 @@ namespace App\Http\Services;
 use App\Http\Repositories\ProductRepository;
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 
 class ProductService implements ServiceInterface {
 
@@ -30,7 +31,6 @@ class ProductService implements ServiceInterface {
     {
         // TODO: Implement add() method.
         $obj                = new Product();
-        $obj->id            = $request->id;
         $obj->product_name  = $request->product_name;
         $obj->description   = $request->description;
         $obj->stock         = $request->stock;
@@ -59,29 +59,24 @@ class ProductService implements ServiceInterface {
     function uploadFile($obj, $request)
     {
         if ($request->hasFile('image1')) {
-            $img  = $request->image1;
-            $path = $img->store('public/products');
-            $obj->image1 = $path;
+            $path           = Storage::disk('s3')->put('images',$request->image1,'public');
+            $obj->image1    = $path;
         }
         if ($request->hasFile('image2')) {
-            $img  = $request->image2;
-            $path = $img->store('public/products');
+            $path        = Storage::disk('s3')->put('images',$request->image2,'public');
             $obj->image2 = $path;
         }
         if ($request->hasFile('image3')) {
-            $img  = $request->image3;
-            $path = $img->store('public/products');
-            $obj->image3 = $path;
+            $path           = Storage::disk('s3')->put('images',$request->image3,'public');
+            $obj->image3    = $path;
         }
         if ($request->hasFile('image4')) {
-            $img  = $request->image4;
-            $path = $img->store('public/products');
-            $obj->image4 = $path;
+            $path           = Storage::disk('s3')->put('images',$request->image4,'public');
+            $obj->image4    = $path;
         }
         if ($request->hasFile('image5')) {
-            $img  = $request->image5;
-            $path = $img->store('public/products');
-            $obj->image5 = $path;
+            $path           = Storage::disk('s3')->put('images',$request->image5,'public');
+            $obj->image5    = $path;
         }
     }
 

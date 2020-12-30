@@ -31,7 +31,6 @@ class CategoryService implements ServiceInterface {
     {
         // TODO: Implement add() method.
         $obj = new Category();
-        $obj->id = $request->id;
         $obj->name = $request->name;
         $obj->description = $request->description;
         $this->categoryRepository->save($obj);

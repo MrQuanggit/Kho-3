@@ -10,7 +10,7 @@
                             <div class="row">
                                 <div class="col-12 col-md-6"></div>
                                 <div class="col-12 col-md-6" style="text-align: right">
-                                    @if(\Illuminate\Support\Facades\Auth::user()->role == 1)
+                                    @if(\Illuminate\Support\Facades\Auth::user()->role_id == 1)
                                     <a href="{{route('users.create')}}" class="btn btn-success">+ Add User</a>
                                     @endif
                                 </div>
@@ -21,7 +21,7 @@
                             <table id="table" class="text-center table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>STT</th>
+                                    <th>No .</th>
                                     <th>Fullname</th>
                                     <th>Image</th>
                                     <th>Username</th>
@@ -37,7 +37,7 @@
                                         <td>{{$key + 1}}</td>
                                         <td>{{$user->name}}</td>
                                         <td><img style="width: 100px; height: 100px"
-                                                 src="@if($user->getUserImage() == '/storage/avatars/')
+                                                 src="@if($user->getUserImage() == 'https://quangvoc8.s3.amazonaws.com/')
                                                      https://st.quantrimang.com/photos/image/072015/22/avatar.jpg
                                                    @else
                                                  {{$user->getUserImage()}}
@@ -45,26 +45,26 @@
                                                  class="img-border-radius avatar-40 img-fluid"></td>
                                         <td>{{$user->user_name}}</td>
                                         <td>{{$user->user_email}}</td>
-                                        <td>{{$user->rolee->name}}</td>
+                                        <td>{{$user->role->name}}</td>
                                         <td>{{$user->status}}</td>
                                         <td>
-                                            @if(\Illuminate\Support\Facades\Auth::user()->role == 1)
+                                            @if(\Illuminate\Support\Facades\Auth::user()->role_id == 1)
                                             <a href="{{route('users.edit', $user->id)}}" style="padding: 5px"
                                                class="btn btn-warning">Edit</a>
                                             <a href="{{route('users.destroy', $user->id)}}" style="padding: 5px"
                                                class="btn btn-danger"
-                                               onclick="return confirm('Bạn chắc chắn muốn xóa?')">Delete</a>
+                                               onclick="return confirm('Do you want to delete this user?')">Delete</a>
                                             @endif</td>
                                 </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="3">Không có dữ liệu</td>
+                                        <td colspan="3">No Information</td>
                                     </tr>
                                 @endforelse
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th>STT</th>
+                                    <th>No .</th>
                                     <th>Fullname</th>
                                     <th>Image</th>
                                     <th>Username</th>

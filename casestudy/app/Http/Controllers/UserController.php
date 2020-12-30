@@ -56,12 +56,12 @@ class UserController extends Controller
     }
 
     public function update(Request $request, $id) {
-        $roles = Role::all();
-        $user = $this->userService->findById($id);
+        $roles      = Role::all();
+        $user       = $this->userService->findById($id);
         $user->fill($request->all());
         $this->userService->uploadFile($user, $request);
         $user->save();
-        $message = 'Successfully Edited Users!';
+        $message    = 'Successfully Edited Users!';
         return redirect()->route('users.index', compact('roles'))->with('success',$message);
     }
 }
